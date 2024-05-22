@@ -155,7 +155,7 @@ public class TrangChuUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Phòng", "Tên Phòng", "Loại Phòng", "Giá Phòng"
             }
         ));
         jScrollPane4.setViewportView(jTable4);
@@ -221,8 +221,7 @@ public class TrangChuUI extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(but_delete_phong))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Quản lý thông tin phòng", jPanel7);
