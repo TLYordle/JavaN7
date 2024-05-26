@@ -4,10 +4,29 @@
  */
 package Database;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author FPTSHOPKM4
  */
 public class connect_to_database {
-    
+     private static final String url = "jdbc:sqlserver://LAPTOP-17HQ99FF\\NGOC0911:1433;databaseName=QLKS;trustServerCertificate=true";
+    private static final String user = "sa";
+    private static final String password = "123456";
+    public static Connection getConnection() throws SQLException{
+        return DriverManager.getConnection(url, user, password);    
+    }
+    /*public static void main(String[] args) throws SQLException {
+        try(Connection connection = DriverManager.getConnection(url, user, password))
+        {
+            System.out.print("ket noi thanh cong");
+        }catch(SQLException EX)
+        {
+            EX.printStackTrace();
+        }
+        
+    }*/
 }
