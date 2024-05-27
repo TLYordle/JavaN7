@@ -39,4 +39,31 @@ public class DatabaseToList {
             return new ArrayList<PHONG>();
         } 
     }
+    public static ArrayList<LOAI_PHONG> Doc_LOAI_PHONG_Tu_CSDL() throws SQLException {
+        ArrayList<LOAI_PHONG> loaiPhongList = new ArrayList<>();
+        try {
+            Connection connection = connect_to_database.getConnection();
+            String query = "SELECT * FROM loaiphong";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                LOAI_PHONG phong = new LOAI_PHONG();
+                phong.setMaLP(resultSet.getString("malp").trim());
+                phong.setTenLP(resultSet.getString("tenlp").trim());
+                phong.setDonGia(resultSet.getDouble("dongia"));  // Assuming column name for money type is don_gia
+                phong.setSoNguoiToiDa(resultSet.getInt("songuoitoida"));  // Assuming column name for int type is so_nguoi_toi_da
+                loaiPhongList.add(phong);
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;  // Rethrow the exception to be handled by the calling method
+        }
+        return loaiPhongList;
+    }
 }

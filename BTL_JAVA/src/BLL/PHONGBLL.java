@@ -55,15 +55,5 @@ public class PHONGBLL {
         
        return table;
     }
-    public static ComboBoxModel cbb_show() throws SQLException{
-        
-        StringBuilder items = new StringBuilder();
-        
-        for(int i = 0;i<PHONGDAL.show().size();i++){
-            items.append(PHONGDAL.show().get(i).getMaLP());
-            items.append("#");
-        }
-        
-        return new DefaultComboBoxModel(items.toString().split("#"));
-    }
+    
 }
