@@ -30,7 +30,7 @@ public class TrangChuUI extends javax.swing.JFrame {
     public TrangChuUI() throws SQLException{
         initComponents();
         show_PHONG();
-        MaLoaiPhongcbo.setModel(PHONGBLL.cbb_show());
+        MaLoaiPhongcbo.setModel(LOAIPHONGBLL.cbb_show());
     }
     //show table
     DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
