@@ -3,42 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package BLL;
-import DAL.PHONGDAL;
-import Entities.PHONG;
-import java.sql.SQLException;
+
+import DAL.PHIEUTHUEPHONGDAL;
+import Entities.Phieu_Thue_Phong;
 import java.util.ArrayList;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 /**
  *
- * @author FPTSHOPKM4
+ * @author TLYordle
  */
-public class PHONGBLL {
-    public static ComboBoxModel cbb_show() throws SQLException{
-        
-        StringBuilder items = new StringBuilder();
-        
-        for(int i = 0;i<PHONGDAL.show().size();i++){
-            items.append(PHONGDAL.show().get(i).getMaPhong());
-            items.append("#");
-        }
-        
-        return new DefaultComboBoxModel(items.toString().split("#"));
-    }
+public class PHIEUTHUEPHONGBLL {
     public static TableModel show(){
         
-        ArrayList<PHONG> list= PHONGDAL.show();
-        String[] columnNames = {"STT","Mã Phòng","Mã Loại Phòng","Tên Phòng","Tình Trạng Phòng"};
+        ArrayList<Phieu_Thue_Phong> list= PHIEUTHUEPHONGDAL.show();
+        String[] columnNames = {"STT","Mã PTP","CCCD","Mã Phòng","Mã Dịch Vụ","Ngày Đặt Phòng","Ngày Trả Phòng"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int row = 0;
-        for(PHONG c : list){
+        for(Phieu_Thue_Phong c : list){
             data[row][0] = (row + 1);
-            data[row][1] = c.getMaPhong();
-            data[row][2] = c.getMaLP();
-            data[row][3] = c.getTenPhong();
-            data[row][4] = c.getTinhTrangPhong();
+            data[row][1] = c.getMaptp();
+            data[row][2] = c.getCccd();
+            data[row][3] = c.getMaphong();
+            data[row][4] = c.getMadv();
+            data[row][5] = c.getNgaydatphong();
+            data[row][6] = c.getNgaytraphong();
             row++;
         }
         DefaultTableModel table = new DefaultTableModel(data,columnNames){

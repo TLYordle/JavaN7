@@ -6,13 +6,13 @@ create table nhanvien(
 	manv char(10) not null primary key,
 	tennv nchar(100),
 	ngaysinh date,
-	sdt int,
+	sdt nvarchar(20),
 	diachi nchar(100),
-	lichlamviec date,
+	lichlamviec nvarchar(20),
 	chucvu nchar(100))
 go 
 create table khachhang(
-	cccd int not null primary key,
+	cccd nvarchar(20) not null primary key,
 	tenkh nchar(100),
 	gioitinh nchar(100),
 	diachi nchar(1000),
@@ -44,11 +44,11 @@ create table dichvu(
 go 
 create table phieuthuephong(
 	maptp char(10) not null primary key,
-	cccd int,
+	cccd nvarchar(20),
 	maphong char(10),
 	madv char(10),
-	ngaynhaphong date,
-	ngaytraphong date,
+	ngaynhaphong nvarchar(30),
+	ngaytraphong nvarchar(30),
 	constraint fk_phieuthuephong_khachhang foreign key (cccd) references khachhang(cccd),
 	constraint fk_phieuthuephong_phong foreign key (maphong) references phong(maphong),
 	constraint fk_phieuthuephong_dichvu foreign key (madv) references dichvu(madv))
@@ -74,12 +74,12 @@ create table thongke(
 	constraint fk_thongke_phong foreign key (maphong) references phong(maphong))
 go
 insert into nhanvien values
-('NV01','NV1','1999/05/03',087920313,'Hà Nội','2024/05/21','Nhân Viên'),
-('NV02','NV2','2000/06/02',087920314,'Hà Nam','2024/05/21','Nhân Viên')
+('NV01','NV1','1999/05/03','087920313','Hà Nội','2024/05/21','Nhân Viên'),
+('NV02','NV2','2000/06/02','087920314','Hà Nam','2024/05/21','Nhân Viên')
 go
 insert into khachhang values
-(0987654321,'kh1','nam','hà nội','việt nam'),
-(0123456789,'KH2','Nữ','Tokyo','Nhật Bản')
+('0987654321','kh1','nam','hà nội','việt nam'),
+('0123456789','KH2','Nữ','Tokyo','Nhật Bản')
 go
 insert into loaiphong values
 ('LP01','LP1',100000,4),
@@ -98,17 +98,19 @@ insert into dichvu values
 ('DV02','LDV01','DV2')
 go 
 insert into phieuthuephong values
-('PTP01',0123456789,'P02','DV01','2024/05/22','2024/05/22'),
-('PTP02',0987654321,'P01','DV02','2024/05/23','2024/05/23')
+('PTP01','0123456789','P02','DV01','2024/05/22','2024/05/22'),
+('PTP02','0987654321','P01','DV02','2024/05/23','2024/05/23')
 go
 insert into hoadon values
 ('HD01','PTP02'),
 ('HD02','PTP01')
 go
 insert into danhgia values
-('DG01',0987654321,'Hi'),
-('DG02',0123456789,'5 sao')
+('DG01','0987654321','Hi'),
+('DG02','0123456789','5 sao')
 go
 insert into thongke values
 ('TK01','NV02','P01', 68.99,1000000),
 ('TK02','NV01','P02', 99.99,10000000)
+
+select * from dichvu inner join loaidichvu 

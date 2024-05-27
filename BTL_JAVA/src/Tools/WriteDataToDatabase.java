@@ -61,4 +61,59 @@ public class WriteDataToDatabase {
             e.printStackTrace();
         }
     }
+    public static void ghi_phieuthuephong_Vao_CSDL(Phieu_Thue_Phong ptp) throws SQLException {
+        String query = "insert into phieuthuephong (maptp,cccd,maphong,madv,ngaynhaphong,ngaytraphong) values (?, ?, ?, ?, ?, ?)";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, ptp.getMaptp());
+            preparedStatement.setString(2, ptp.getCccd());
+            preparedStatement.setString(3, ptp.getMaphong());
+            preparedStatement.setString(4, ptp.getMadv());
+            preparedStatement.setString(5, ptp.getNgaydatphong());    
+            preparedStatement.setString(6, ptp.getNgaytraphong());  
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void capNhat_phieuthuephong_Vao_CSDL(Phieu_Thue_Phong ptp) throws SQLException {
+        String query = "update phieuthuephong set cccd = ?,maphong = ?, madv = ?, ngaynhaphong= ?,ngaytraphong= ? WHERE maptp = ?";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(6, ptp.getMaptp());
+            preparedStatement.setString(1, ptp.getCccd());
+            preparedStatement.setString(2, ptp.getMaphong());
+            preparedStatement.setString(3, ptp.getMadv());
+            preparedStatement.setString(4, ptp.getNgaydatphong());    
+            preparedStatement.setString(5, ptp.getNgaytraphong());  
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            System.out.println("Đã ghi phong vào CSDL thành công.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi
+        }      
+    }
+    public static void xoa_phieuthuephong_Vao_CSDL(String maptp) throws SQLException{
+        String query = "delete from phieuthuephong where maptp = ?";
+        String deleteHoaDonSQL = "DELETE FROM hoadon WHERE maptp = ?";
+        try{
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement deleteHoaDonStmt = connection.prepareStatement(deleteHoaDonSQL);
+            deleteHoaDonStmt = connection.prepareStatement(deleteHoaDonSQL);
+            deleteHoaDonStmt.setString(1, maptp);
+            deleteHoaDonStmt.executeUpdate();
+            
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, maptp);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
