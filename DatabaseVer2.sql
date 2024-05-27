@@ -5,7 +5,7 @@ go
 create table nhanvien(
 	manv char(10) not null primary key,
 	tennv nchar(100),
-	ngaysinh date,
+	ngaysinh nchar(50),
 	sdt nvarchar(20),
 	diachi nchar(100),
 	lichlamviec nvarchar(20),
@@ -60,7 +60,7 @@ create table hoadon(
 go 
 create table danhgia(
 	madg char(10) not null primary key,
-	cccd int,
+	cccd nvarchar(20),
 	noidungdg nchar(1000),
 	constraint fk_danhgia_khachhang foreign key (cccd) references khachhang(cccd))
 go 
@@ -74,29 +74,43 @@ create table thongke(
 	constraint fk_thongke_phong foreign key (maphong) references phong(maphong))
 go
 insert into nhanvien values
-('NV01','NV1','1999/05/03','087920313','Hà Nội','2024/05/21','Nhân Viên'),
-('NV02','NV2','2000/06/02','087920314','Hà Nam','2024/05/21','Nhân Viên')
+('NV01',N'Trần Văn Lâm','23/07/2003','087920312',N'Nam Định','29/05/2024',N'Nhân Viên'),
+('NV02',N'Phạm Đức Mạnh','24/08/2003','087920314',N'Hà Nội','30/05/2024',N'Nhân Viên'),
+('NV03',N'Phùng Thế Ngọc','25/09/2003','087920316',N'Ninh Bình','01/06/2024',N'Quản Lý'),
+('NV04',N'Nguyễn Tuần Lộc','26/10/2003','087920340',N'TP.Hồ Chí Minh','30/05/2024',N'Nhân Viên')
 go
 insert into khachhang values
-('0987654321','kh1','nam','hà nội','việt nam'),
-('0123456789','KH2','Nữ','Tokyo','Nhật Bản')
+('0987654321',N'Chí Phèo',N'Nam',N'Hà Nội',N'Việt Nam'),
+('0123456789',N'Yae Miko',N'Nữ',N'Tokyo',N'Nhật Bản'),
+('0463236432',N'Hammas Eliot',N'Nam',N'Washington',N'Hoa Kỳ'),
+('0343281944',N'Lão Hạc',N'Nam',N'Hà Nam',N'Việt Nam'),
+('0279575174',N'Kamada',N'Nữ',N'Osaka',N'Nhật Bản')
 go
 insert into loaiphong values
-('LP01','LP1',100000,4),
-('LP02','LP2',200000,1)
+('LP01',N'Phòng Đơn',100000,1),
+('LP02',N'Phòng Đôi',200000,4),
+('LP03',N'Phòng V.I.P 1',2000000,4),
+('LP04',N'Phòng V.I.P 2',6000000,8)
 go
 insert into phong values
-('P01','LP02','P1','Còn trống'),
-('P02','LP01','P2','Đầy phòng')
+('P01','LP02','P101','Còn trống'),
+('P02','LP01','P201','Đầy phòng'),
+('P03','LP04','P401','Còn trống'),
+('P04','LP03','P301','Còn trống')
 go
 insert into loaidichvu values
-('LDV01','LDV1',10000),
-('LDV02','LDV2',100000)
+('LDV01',N'Đồ Ăn',10000),
+('LDV02',N'Vận Chuyển',500000),
+('LDV03',N'Giải Trí',200000)
 go
 insert into dichvu values
-('DV01','LDV02','DV1'),
-('DV02','LDV01','DV2')
-go 
+('DV01','LDV01',N'Hủ Tiếu Gõ'),
+('DV02','LDV01',N'Mì 2 Trứng'),
+('DV03','LDV02',N'Xe Đưa Đón Sân Bay'),
+('DV04','LDV02',N'Cho Thuê xe Tự lái'),
+('DV05','LDV03',N'Spa'),
+('DV06','LDV03',N'Đánh Golf, Tennis')
+go
 insert into phieuthuephong values
 ('PTP01','0123456789','P02','DV01','2024/05/22','2024/05/22'),
 ('PTP02','0987654321','P01','DV02','2024/05/23','2024/05/23')
@@ -113,4 +127,4 @@ insert into thongke values
 ('TK01','NV02','P01', 68.99,1000000),
 ('TK02','NV01','P02', 99.99,10000000)
 
-select * from dichvu inner join loaidichvu 
+select * from khachhang
