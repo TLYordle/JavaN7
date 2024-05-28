@@ -12,17 +12,17 @@ import java.io.IOException;
  * @author FPTSHOPKM4
  */
 public class HOA_DON implements Serializable{
-     private int maHoaDon;
+     private String maHoaDon;
     private double bangGia;
     private double tongTien;
     private Date ngayThanhToan;
     private int tinhTrangHD;
 
-    public int getMaHoaDon() {
+     public String getMaHoaDon() {
         return maHoaDon;
     }
 
-    public void setMaHoaDon(int maHoaDon) {
+    public void setMaHoaDon(String maHoaDon) {
         this.maHoaDon = maHoaDon;
     }
 
@@ -59,7 +59,7 @@ public class HOA_DON implements Serializable{
     }
 
     
-    public HOA_DON(int maHoaDon, double bangGia, double tongTien, Date ngayThanhToan, int tinhTrangHD) {
+    public HOA_DON(String maHoaDon, double bangGia, double tongTien, Date ngayThanhToan, int tinhTrangHD) {
         this.maHoaDon = maHoaDon;
         this.bangGia = bangGia;
         this.tongTien = tongTien;
