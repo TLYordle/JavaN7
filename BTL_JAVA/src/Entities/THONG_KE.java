@@ -14,18 +14,22 @@ import java.io.IOException;
  * @author FPTSHOPKM4
  */
 public class THONG_KE implements Serializable {
-    private String maDanhGia;
+   private String maDanhGia;
    private String cccd;
    private String maThongKe;
    private String maNV;
    private Date ngayThongKe;
+    private float tiLeDatPhong;
+    private double doanhthu;
 
-    public THONG_KE(String maDanhGia, String cccd, String maThongKe, String maNV, Date ngayThongKe) {
+    public THONG_KE(String maDanhGia, String cccd, String maThongKe, String maNV, Date ngayThongKe, float tiLeDatPhong, double doanhthu) {
         this.maDanhGia = maDanhGia;
         this.cccd = cccd;
         this.maThongKe = maThongKe;
         this.maNV = maNV;
         this.ngayThongKe = ngayThongKe;
+        this.tiLeDatPhong = tiLeDatPhong;
+        this.doanhthu = doanhthu;
     }
 
     public String getMaDanhGia() {
@@ -68,8 +72,24 @@ public class THONG_KE implements Serializable {
         this.ngayThongKe = ngayThongKe;
     }
 
-    @Override
+     public float getTiLeDatPhong() {
+        return tiLeDatPhong;
+    }
+
+    public void setTiLeDatPhong(float tiLeDatPhong) {
+        this.tiLeDatPhong = tiLeDatPhong;
+    }
+
+    public double getDoanhthu() {
+        return doanhthu;
+    }
+
+    public void setDoanhthu(double doanhthu) {
+        this.doanhthu = doanhthu;
+    }
+    
+   @Override
     public String toString() {
-        return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", cccd=" + cccd + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + '}';
+        return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", cccd=" + cccd + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
     }
 }
