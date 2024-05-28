@@ -4,11 +4,14 @@
  */
 package Entities;
 import java.util.Date;
-/**
- *
+import Tools.DatabaseToList;
+import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.io.IOException;
  * @author FPTSHOPKM4
  */
-public class HOA_DON {
+public class HOA_DON implements Serializable{
      private int maHoaDon;
     private double bangGia;
     private double tongTien;
