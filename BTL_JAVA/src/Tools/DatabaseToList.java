@@ -154,4 +154,53 @@ public class DatabaseToList {
         } 
             
     }
+    public static ArrayList<HOA_DON> Doc_HoaDon_Tu_CSDL() throws SQLException {
+        ArrayList<HOA_DON> HoaDon = new ArrayList<>();
+        try{
+            Connection connection = connect_to_database.getConnection();
+            String query ="select * from hoadon";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                HOA_DON hoadon = new HOA_DON();
+                hoadon.setMaHoaDon(resultSet.getString("mahoadon").trim());
+                hoadon.setBangGia(resultSet.getDouble("banggia"));
+                hoadon.setTongTien(resultSet.getDouble("tongtien"));
+                hoadon.setNgayThanhToan(resultSet.getDate("ngaythanhtoan"));
+                hoadon.setTinhTrangHD(resultSet.getInt("tinhtrangtinhHD"));
+                HoaDon.add(hoadon);
+            }
+            return HoaDon;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return new ArrayList<HOA_DON>();
+        } 
+    }
+   
+
+    public static ArrayList<THONG_KE> Doc_ThongKe_Tu_CSDL() {
+        ArrayList<THONG_KE> ThongKe =  new ArrayList<>();
+        try{
+            Connection connection = connect_to_database.getConnection();
+            String query ="select * from thongke";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                THONG_KE tk = new THONG_KE();
+                tk.setMaDanhGia(resultSet.getString("madanhgia").trim());
+                tk.setCccd(resultSet.getString("cccd").trim());
+                tk.setMaThongKe(resultSet.getString("mathongke").trim());
+                tk.setMaNV(resultSet.getString("manv").trim());
+                tk.setNgayThongKe(resultSet.getDate("ngaythongke"));
+                tk.setTiLeDatPhong(resultSet.getFloat("tiledatphong"));
+                tk.setDoanhthu(resultSet.getDouble("doanhthu"));
+                ThongKe.add(tk);
+            }
+            return ThongKe;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return new ArrayList<THONG_KE>();
+        } 
+            
+    }
 }
