@@ -11,7 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author trandangan
+ * 
  */
 public class NHANVIENBLL {
     public static ComboBoxModel c_show() throws SQLException{
