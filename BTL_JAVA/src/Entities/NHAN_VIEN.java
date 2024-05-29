@@ -64,7 +64,7 @@ public class NHAN_VIEN implements Serializable{
 
     @Override
     public String toString() {
-        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", TrangThai=" + TrangThai + ", cccd=" + cccd + " '}';
+        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", TrangThai=" + TrangThai + ", cccd=" + cccd +  '}';
     }
     
     public static void main(String[] args) throws SQLException{
