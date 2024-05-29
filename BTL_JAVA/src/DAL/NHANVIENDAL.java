@@ -4,17 +4,17 @@
  */
 package DAL;
 
-import Entities.KHACH_HANG;
+import Entities.NHAN_VIEN;
 import Tools.DatabaseToList;
 
 /**
  *
- * @author TLYordle
+ * @author trandangan
  */
-public class KHACHHANGDAL {
-    public static ArrayList<KHACH_HANG> show(){
-        ArrayList<KHACH_HANG> a = new ArrayList<KHACH_HANG>();
-        a = DatabaseToList.Doc_khachhang_Tu_CSDL();
+public class NHANVIENDAL {
+    public static ArrayList<NHAN_VIEN> show(){
+        ArrayList<NHAN_VIEN> a = new ArrayList<NHAN_VIEN>();
+        a = DatabaseToList.Doc_nhanvien_Tu_CSDL();
         return a;
     }
 }
