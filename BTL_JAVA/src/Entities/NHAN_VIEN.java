@@ -18,16 +18,16 @@ public class NHAN_VIEN implements Serializable{
     private String MaNV;
     private String tenNV;
     private String TrangThai;
-    private String CCCD;
+    private String cccd;
 
     public NHAN_VIEN() {
     }
 
-    public NHAN_VIEN(String MaNV, String tenNV, String TrangThai, String CCCD) {
+    public NHAN_VIEN(String MaNV, String tenNV, String TrangThai, String cccd) {
         this.MaNV = MaNV;
         this.tenNV = tenNV;
         this.TrangThai = TrangThai;
-        this.CCCD = CCCD;
+        this.cccd = cccd;
     }
 
     public String getMaNV() {
@@ -54,17 +54,17 @@ public class NHAN_VIEN implements Serializable{
         this.TrangThai = TrangThai;
     }
 
-    public String getCCCD() {
-        return CCCD;
+    public String getcccd() {
+        return cccd;
     }
 
-    public void setCCCD(String CCCD) {
-        this.CCCD = CCCD;
+    public void setcccd(String cccd) {
+        this.cccd = cccd;
     }
 
     @Override
     public String toString() {
-        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", TrangThai=" + TrangThai + ", CCCD=" + CCCD + " '}';
+        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", TrangThai=" + TrangThai + ", cccd=" + cccd + " '}';
     }
     
     public static void main(String[] args) throws SQLException{
