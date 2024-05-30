@@ -6,6 +6,7 @@ package DAL;
 
 import Entities.KHACH_HANG;
 import Tools.DatabaseToList;
+import java.util.ArrayList;
 
 /**
  *

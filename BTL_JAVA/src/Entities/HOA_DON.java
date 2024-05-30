@@ -9,8 +9,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.io.IOException;
- * @author FPTSHOPKM4
- */
+
 public class HOA_DON implements Serializable{
      private String maHoaDon;
     private double bangGia;
