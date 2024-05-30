@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/DAL/NHANVIENDAL.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Entities/DANH_GIA.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Entities/THONG_KE.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/DAL/KHACHHANGDAL.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/BLL/DICHVUBLL.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/BLL/DANHGIABLL.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Tools/WriteDataToDatabase.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Tools/DatabaseToList.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Entities/Phieu_Thue_Phong.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Entities/PHONG.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Run/Run.java</file>
+            <file>file:/D:/HocTap/HKC6/Java/JavaN7/BTL_JAVA/src/Entities/HOA_DON.java</file>
         <group/>
     </open-files>
 </project-private>
