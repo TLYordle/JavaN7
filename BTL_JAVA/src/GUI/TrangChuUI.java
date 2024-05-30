@@ -11,6 +11,9 @@ import DAL.*;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +38,10 @@ public class TrangChuUI extends javax.swing.JFrame {
         cbmaphong.setModel(PHONGBLL.cbb_show());
         cbcccd.setModel(KHACHHANGBLL.c_show());
         cbmadv.setModel(DICHVUBLL.cbb_show());
-        
+        show_HOA_DON();
+        cbbanggia.setModel(LOAIDICHVUBLL.cbb_show());
+        show_THONG_KE();
+        cbcccd12.setModel(KHACHHANGBLL.c_show());
     }
     //show table
     DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
@@ -52,7 +58,20 @@ public class TrangChuUI extends javax.swing.JFrame {
         renderer.setHorizontalAlignment( JLabel.LEFT );
         tbptp.setDefaultRenderer(Object.class, renderer);     
     }
-    
+    public void show_HOA_DON() throws SQLException {
+        model = (DefaultTableModel) tbhd.getModel(); // Hiển thị thông báo lỗi cho người dùng
+        tbhd.setModel(HOADONBLL.show());
+        renderer.setHorizontalAlignment(JLabel.LEFT);
+        tbhd.setDefaultRenderer(Object.class, renderer);
+}
+
+public void show_THONG_KE() throws SQLException {
+    model = (DefaultTableModel) tbtk.getModel(); // Hiển thị thông báo lỗi cho người dùng
+    tbtk.setModel(THONGKEBLL.show());
+    renderer.setHorizontalAlignment(JLabel.LEFT);
+    tbtk.setDefaultRenderer(Object.class, renderer);
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,8 +125,40 @@ public class TrangChuUI extends javax.swing.JFrame {
         tbptp = new javax.swing.JTable();
         cbcccd = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        mahdtxt = new javax.swing.JTextField();
+        txtngaythanhtoan = new javax.swing.JTextField();
+        txttongtien = new javax.swing.JTextField();
+        themthanhtoan = new javax.swing.JButton();
+        suathanhtoan = new javax.swing.JButton();
+        xoathanhtoan = new javax.swing.JButton();
+        lammoithanhtoan = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbhd = new javax.swing.JTable();
+        cbbanggia = new javax.swing.JComboBox<>();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        mathongketxt = new javax.swing.JTextField();
+        txtngaythongke = new javax.swing.JTextField();
+        txtdoanhthu = new javax.swing.JTextField();
+        themthongke = new javax.swing.JButton();
+        suathongke = new javax.swing.JButton();
+        xoathongke = new javax.swing.JButton();
+        lammoithongke = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbtk = new javax.swing.JTable();
+        cbcccd12 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        madanhgiatxt = new javax.swing.JTextField();
+        txtmanhanvien = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -217,6 +268,11 @@ public class TrangChuUI extends javax.swing.JFrame {
         });
 
         MaLoaiPhongcbo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        MaLoaiPhongcbo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaLoaiPhongcboActionPerformed(evt);
+            }
+        });
 
         tbPhong.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tbPhong.setModel(new javax.swing.table.DefaultTableModel(
@@ -230,6 +286,15 @@ public class TrangChuUI extends javax.swing.JFrame {
                 "STT", "Mã Phòng", "Mã Loại Phòng", "Tên Phòng", "Tình Trạng Phòng"
             }
         ));
+        tbPhong.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tbPhongAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         tbPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPhongMouseClicked(evt);
@@ -325,7 +390,7 @@ public class TrangChuUI extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 314, Short.MAX_VALUE)
         );
 
         AdminTabPane.addTab("Quản lý khách hàng", jPanel8);
@@ -414,6 +479,11 @@ public class TrangChuUI extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(tbptp);
+        if (tbptp.getColumnModel().getColumnCount() > 0) {
+            tbptp.getColumnModel().getColumn(4).setHeaderValue("Mã Dịch Vụ");
+            tbptp.getColumnModel().getColumn(5).setHeaderValue("Ngày Đặt Phòng");
+            tbptp.getColumnModel().getColumn(6).setHeaderValue("Ngày Trả Phòng");
+        }
 
         cbcccd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -509,15 +579,167 @@ public class TrangChuUI extends javax.swing.JFrame {
 
         AdminTabPane.addTab("Quản lý thuê phòng", jPanel9);
 
+        jPanel10.setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel12.setText("Mã Hóa Đơn");
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel13.setText("Bảng Giá");
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 112));
+        jLabel16.setText("Tổng Tiền");
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 112));
+        jLabel17.setText("Ngày Thanh Toán");
+
+        mahdtxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        mahdtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mahdtxtActionPerformed(evt);
+            }
+        });
+
+        txtngaythanhtoan.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtngaythanhtoan.setToolTipText("");
+
+        txttongtien.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txttongtien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttongtienActionPerformed(evt);
+            }
+        });
+
+        themthanhtoan.setText("Thêm");
+        themthanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                themthanhtoanActionPerformed(evt);
+            }
+        });
+
+        suathanhtoan.setText("Sửa");
+        suathanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suathanhtoanActionPerformed(evt);
+            }
+        });
+
+        xoathanhtoan.setText("Xóa");
+        xoathanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xoathanhtoanActionPerformed(evt);
+            }
+        });
+
+        lammoithanhtoan.setText("Làm Mới");
+        lammoithanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lammoithanhtoanActionPerformed(evt);
+            }
+        });
+
+        tbhd.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "STT", "Mã Hóa đơn", "Tổng Tiền", "Ngày Thanh Toán"
+            }
+        ));
+        tbhd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbhdMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tbhd);
+
+        cbbanggia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbbanggia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbanggiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel16)))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(themthanhtoan)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mahdtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(txttongtien))
+                                .addGap(8, 8, 8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(suathanhtoan)
+                                .addGap(47, 47, 47)))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(xoathanhtoan)
+                                    .addComponent(jLabel13))
+                                .addGap(48, 48, 48)
+                                .addComponent(lammoithanhtoan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbbanggia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                        .addComponent(txtngaythanhtoan, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(71, 71, 71)))))
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(mahdtxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(cbbanggia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(txttongtien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtngaythanhtoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(themthanhtoan)
+                    .addComponent(suathanhtoan)
+                    .addComponent(xoathanhtoan)
+                    .addComponent(lammoithanhtoan))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         AdminTabPane.addTab("Quản lý thanh toán", jPanel10);
@@ -530,20 +752,195 @@ public class TrangChuUI extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 314, Short.MAX_VALUE)
         );
 
         AdminTabPane.addTab("Quản lý nhân viên", jPanel11);
+
+        jPanel12.setBackground(new java.awt.Color(204, 255, 255));
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel18.setText("CCCD");
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel19.setText("Mã Thống Kê");
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 112));
+        jLabel20.setText("Doanh Thu");
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 112));
+        jLabel21.setText("Ngày Thống Kê");
+
+        mathongketxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        mathongketxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mathongketxtActionPerformed(evt);
+            }
+        });
+
+        txtngaythongke.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtngaythongke.setToolTipText("");
+
+        txtdoanhthu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        themthongke.setText("Thêm");
+        themthongke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                themthongkeActionPerformed(evt);
+            }
+        });
+
+        suathongke.setText("Sửa");
+        suathongke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suathongkeActionPerformed(evt);
+            }
+        });
+
+        xoathongke.setText("Xóa");
+        xoathongke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xoathongkeActionPerformed(evt);
+            }
+        });
+
+        lammoithongke.setText("Làm Mới");
+        lammoithongke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lammoithongkeActionPerformed(evt);
+            }
+        });
+
+        tbtk.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "STT", "Mã Thống Kê", "CCCD", "Mã Đánh Giá", "Mã Nhân Viên", "Doanh Thu", "Ngày Thống Kê"
+            }
+        ));
+        tbtk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbtkMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tbtk);
+
+        cbcccd12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel22.setText("Mã Đánh Giá");
+
+        madanhgiatxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        madanhgiatxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                madanhgiatxtActionPerformed(evt);
+            }
+        });
+
+        txtmanhanvien.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtmanhanvien.setToolTipText("");
+
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 112));
+        jLabel23.setText("Mã Nhân Viên");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 773, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel22)))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(themthongke)))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mathongketxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(txtdoanhthu)
+                                    .addComponent(madanhgiatxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                                .addGap(38, 38, 38))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                                .addComponent(suathongke)
+                                .addGap(75, 75, 75)))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtmanhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbcccd12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
+                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lammoithongke)
+                                    .addComponent(txtngaythongke, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                                .addComponent(xoathongke)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(71, 71, 71)))
+                .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(mathongketxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(cbcccd12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel22)
+                        .addComponent(madanhgiatxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtmanhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21)
+                    .addComponent(txtdoanhthu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtngaythongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lammoithongke)
+                    .addComponent(xoathongke)
+                    .addComponent(suathongke)
+                    .addComponent(themthongke))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         AdminTabPane.addTab("Báo cáo thống kê", jPanel12);
@@ -563,9 +960,8 @@ public class TrangChuUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AdminTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(AdminTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -847,6 +1243,321 @@ public class TrangChuUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void mahdtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mahdtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mahdtxtActionPerformed
+
+    private void themthanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themthanhtoanActionPerformed
+        try {
+        // Kiểm tra giá trị đầu vào
+        if (mahdtxt.getText().isEmpty() || txttongtien.getText().isEmpty() || 
+            txtngaythanhtoan.getText().isEmpty() || cbbanggia.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin!");
+            return;
+        }
+
+        // Tạo một đối tượng HOA_DON mới
+        HOA_DON newHoa_don = new HOA_DON();
+        
+        // Thiết lập các giá trị cho đối tượng HOA_DON
+        newHoa_don.setMaHoaDon(mahdtxt.getText());
+        
+        try {
+            double tongTien = Double.parseDouble(txttongtien.getText());
+            newHoa_don.setTongTien(tongTien);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Tổng tiền phải là số.");
+            return;
+        }
+
+        try {
+            double bangGia = Double.parseDouble(cbbanggia.getSelectedItem().toString());
+            newHoa_don.setBangGia(bangGia);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Bảng giá phải là số.");
+            return;
+        }
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date ngayThanhToan = sdf.parse(txtngaythanhtoan.getText());
+            newHoa_don.setNgayThanhToan(ngayThanhToan);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Ngày thanh toán phải có định dạng dd/MM/yyyy.");
+            return;
+        }
+
+        try {
+            // Thực hiện chèn hóa đơn mới vào cơ sở dữ liệu
+            if (HOADONDAL.insert(HOADONDAL.show(), newHoa_don)) {
+                JOptionPane.showMessageDialog(null, "Thêm Hóa đơn thành công!");
+                // Hiển thị thông tin hóa đơn
+                show_HOA_DON();
+            } else {
+                JOptionPane.showMessageDialog(null, "Không thể thêm hóa đơn. Vui lòng thử lại.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra khi thêm hóa đơn: " + ex.getMessage());
+        }
+
+        // Xóa nội dung các JTextField
+        delJtextFieldTbSach();
+    } catch (HeadlessException | IOException e) {
+        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
+        JOptionPane.showMessageDialog(null, "Có lỗi xảy ra: " + e.getMessage());
+    }
+    }//GEN-LAST:event_themthanhtoanActionPerformed
+
+    private void suathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suathanhtoanActionPerformed
+        // TODO add your handling code here:
+     try {
+        HOA_DON setHoa_don = new HOA_DON();
+        setHoa_don.setMaHoaDon(MaPhongtxt.getText());
+
+        // Chuyển đổi txttongtien thành kiểu double
+        double tongTien = Double.parseDouble(txttongtien.getText());
+        setHoa_don.setTongTien(tongTien);
+
+        // Chuyển đổi txtngaythanhtoan thành kiểu Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date ngayThanhToan = dateFormat.parse(txtngaythanhtoan.getText());
+        setHoa_don.setNgayThanhToan(ngayThanhToan);
+
+        // Chuyển đổi cbbanggia thành kiểu double
+        double bangGia = Double.parseDouble(cbbanggia.getSelectedItem().toString());
+        setHoa_don.setBangGia(bangGia);
+
+        int reply = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn sửa?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            try {
+                if (HOADONDAL.update(HOADONDAL.show(), setHoa_don)) {
+                    JOptionPane.showMessageDialog(this, "Sửa Hóa đơn thành công!");
+                    show_HOA_DON();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Mã Hóa đơn không tồn tại!");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Lỗi khi cập nhật hóa đơn: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+            delJtextFieldTbSach();
+        }
+    } catch (HeadlessException | IOException | NumberFormatException | ParseException e) {
+        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
+        JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+     
+    }//GEN-LAST:event_suathanhtoanActionPerformed
+
+    private void xoathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoathanhtoanActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(tbhd.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(rootPane,"Hãy chọn một dòng để xóa");
+            } else if(HOADONDAL.show().size() == 0){
+                JOptionPane.showMessageDialog(rootPane,"Không có thông tin để xóa");
+            }
+            else{
+                HOA_DON delHoa_don = new HOA_DON();
+                delHoa_don.setMaHoaDon(mahdtxt.getText());
+                int reply = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa?", "Thông báo", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION) {
+                    try {
+                        HOADONDAL.delete(HOADONDAL.show(), delHoa_don);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    model = (DefaultTableModel) tbhd.getModel();
+                    model.setRowCount(0);
+                    try {
+                        show_HOA_DON();
+                        JOptionPane.showMessageDialog(null,"Xóa Hóa đơn thành công!");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    delJtextFieldTbSach();
+                }
+
+            }
+
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Có lỗi xảy ra: "+e.getMessage());
+        }
+    }//GEN-LAST:event_xoathanhtoanActionPerformed
+
+    private void tbhdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbhdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbhdMouseClicked
+
+    private void mathongketxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mathongketxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mathongketxtActionPerformed
+
+    private void themthongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themthongkeActionPerformed
+        // TODO add your handling code here:
+        try {
+        THONG_KE newThong_ke = new THONG_KE();
+        newThong_ke.setMaThongKe(mathongketxt.getText());
+        newThong_ke.setMaDanhGia(madanhgiatxt.getText());
+        newThong_ke.setMaNV(txtmanhanvien.getText());
+
+        // Chuyển đổi txtdoanhthu thành kiểu double
+        double doanhThu = Double.parseDouble(txtdoanhthu.getText());
+        newThong_ke.setDoanhthu(doanhThu);
+
+        // Chuyển đổi txtngaythongke thành kiểu Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date ngayThongKe = dateFormat.parse(txtngaythongke.getText());
+        newThong_ke.setNgayThongKe(ngayThongKe);
+
+        newThong_ke.setCccd(cbcccd12.getSelectedItem().toString());
+
+        try {
+            if (THONGKEDAL.insert(THONGKEDAL.show(), newThong_ke)) {
+                JOptionPane.showMessageDialog(this, "Thêm Thống kê thành công!");
+                show_THONG_KE();
+            } else {
+                JOptionPane.showMessageDialog(this, "Không thể thêm Thống kê!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Lỗi khi thêm thống kê: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+
+        delJtextFieldTbSach();
+    } catch (HeadlessException | IOException | NumberFormatException | ParseException e) {
+        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
+        JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+        
+    }//GEN-LAST:event_themthongkeActionPerformed
+
+    private void suathongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suathongkeActionPerformed
+        // TODO add your handling code here:
+         try {
+        THONG_KE setThong_ke = new THONG_KE();
+        setThong_ke.setMaThongKe(mathongketxt.getText());
+        setThong_ke.setMaDanhGia(madanhgiatxt.getText());
+        setThong_ke.setMaNV(txtmanhanvien.getText());
+
+        // Chuyển đổi txtdoanhthu thành kiểu double
+        double doanhThu = Double.parseDouble(txtdoanhthu.getText());
+        setThong_ke.setDoanhthu(doanhThu);
+
+        // Chuyển đổi txtngaythongke thành kiểu Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date ngayThongKe = dateFormat.parse(txtngaythongke.getText());
+        setThong_ke.setNgayThongKe(ngayThongKe);
+
+        setThong_ke.setCccd(cbcccd12.getSelectedItem().toString());
+
+        int reply = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn sửa?", "Thông báo", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            try {
+                if (THONGKEDAL.update(THONGKEDAL.show(), setThong_ke)) {
+                    JOptionPane.showMessageDialog(this, "Sửa Thống kê thành công!");
+                    show_THONG_KE();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Mã Thống kê không tồn tại!");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Lỗi khi cập nhật thống kê: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+            delJtextFieldTbSach();
+        }
+    } catch (HeadlessException | IOException | NumberFormatException | ParseException e) {
+        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
+        JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+         
+    }//GEN-LAST:event_suathongkeActionPerformed
+
+    private void xoathongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoathongkeActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(tbtk.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(rootPane,"Hãy chọn một dòng để xóa");
+            } else if(THONGKEDAL.show().size() == 0){
+                JOptionPane.showMessageDialog(rootPane,"Không có thông tin để xóa");
+            }
+            else{
+                THONG_KE delThong_ke = new THONG_KE();
+                delThong_ke.setMaThongKe(mathongketxt.getText());
+                int reply = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa?", "Thông báo", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION) {
+                    try {
+                        THONGKEDAL.delete(THONGKEDAL.show(), delThong_ke);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    model = (DefaultTableModel) tbtk.getModel();
+                    model.setRowCount(0);
+                    try {
+                        show_THONG_KE();
+                        JOptionPane.showMessageDialog(null,"Xóa Thống kê thành công!");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    delJtextFieldTbSach();
+                }
+
+            }
+
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Có lỗi xảy ra: "+e.getMessage());
+        }
+    }//GEN-LAST:event_xoathongkeActionPerformed
+
+    private void tbtkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtkMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtkMouseClicked
+
+    private void madanhgiatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_madanhgiatxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_madanhgiatxtActionPerformed
+
+    private void lammoithongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lammoithongkeActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            show_THONG_KE();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lammoithongkeActionPerformed
+
+    private void txttongtienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttongtienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttongtienActionPerformed
+
+    private void cbbanggiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbanggiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbanggiaActionPerformed
+
+    private void MaLoaiPhongcboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaLoaiPhongcboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MaLoaiPhongcboActionPerformed
+
+    private void lammoithanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lammoithanhtoanActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            show_HOA_DON();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lammoithanhtoanActionPerformed
+
+    private void tbPhongAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbPhongAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbPhongAncestorAdded
     
     public void show_Row_tbPhieuthuephong(){
         int i = tbptp.getSelectedRow();
@@ -919,7 +1630,9 @@ public class TrangChuUI extends javax.swing.JFrame {
     private javax.swing.JTextField TinhTrangPhongtxt;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton but_Sua;
+    private javax.swing.JComboBox<String> cbbanggia;
     private javax.swing.JComboBox<String> cbcccd;
+    private javax.swing.JComboBox<String> cbcccd12;
     private javax.swing.JComboBox<String> cbmadv;
     private javax.swing.JComboBox<String> cbmaphong;
     private javax.swing.JButton jButton1;
@@ -929,7 +1642,17 @@ public class TrangChuUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -947,13 +1670,33 @@ public class TrangChuUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton lammoithanhtoan;
+    private javax.swing.JButton lammoithongke;
+    private javax.swing.JTextField madanhgiatxt;
+    private javax.swing.JTextField mahdtxt;
     private javax.swing.JTextField maptptxt;
+    private javax.swing.JTextField mathongketxt;
+    private javax.swing.JButton suathanhtoan;
+    private javax.swing.JButton suathongke;
     private javax.swing.JTable tbPhong;
+    private javax.swing.JTable tbhd;
     private javax.swing.JTable tbptp;
+    private javax.swing.JTable tbtk;
+    private javax.swing.JButton themthanhtoan;
+    private javax.swing.JButton themthongke;
+    private javax.swing.JTextField txtdoanhthu;
+    private javax.swing.JTextField txtmanhanvien;
     private javax.swing.JTextField txtngaydatphong;
+    private javax.swing.JTextField txtngaythanhtoan;
+    private javax.swing.JTextField txtngaythongke;
     private javax.swing.JTextField txtngaytraphong;
+    private javax.swing.JTextField txttongtien;
+    private javax.swing.JButton xoathanhtoan;
+    private javax.swing.JButton xoathongke;
     // End of variables declaration//GEN-END:variables
 }
