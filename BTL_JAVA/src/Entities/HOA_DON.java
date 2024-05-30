@@ -80,4 +80,8 @@ public class HOA_DON implements Serializable{
     public String toString() {
         return "HOA_DON{" + "maHoaDon=" + maHoaDon + ", bangGia=" + bangGia + ", tongTien=" + tongTien + ", ngayThanhToan=" + ngayThanhToan + ", tinhTrangHD=" + tinhTrangHD + '}';
     }
+    
+    public static void main(String[] args) throws SQLException{
+       ArrayList<HOA_DON> danhSachHoa_dons = DatabaseToList.Doc_HoaDon_Tu_CSDL();
+    }
 }

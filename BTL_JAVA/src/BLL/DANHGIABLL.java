@@ -17,7 +17,7 @@ public class DANHGIABLL {
         StringBuilder items = new StringBuilder();
         
         for(int i = 0;i<DANHGIADAL.show().size();i++){
-            items.append(DANHGIADAL.show().get(i).getMadg());
+            items.append(DANHGIADAL.show().get(i).getMaDG());
             items.append("#");
         }
         

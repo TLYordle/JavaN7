@@ -95,4 +95,8 @@ public class THONG_KE implements Serializable {
     public String toString() {
         return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", cccd=" + cccd + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
     }
+    
+    public static void main(String[] args) throws SQLException{
+       ArrayList<THONG_KE> danhSachThong_kes = DatabaseToList.Doc_ThongKe_Tu_CSDL();
+    }
 }

@@ -157,9 +157,9 @@ public void show_THONG_KE() throws SQLException {
         tbtk = new javax.swing.JTable();
         cbcccd12 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        madanhgiatxt = new javax.swing.JTextField();
-        txtmanhanvien = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        manhanviencb = new javax.swing.JComboBox<>();
+        madanhgiacb = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -843,19 +843,13 @@ public void show_THONG_KE() throws SQLException {
         jLabel22.setForeground(new java.awt.Color(0, 0, 102));
         jLabel22.setText("Mã Đánh Giá");
 
-        madanhgiatxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        madanhgiatxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                madanhgiatxtActionPerformed(evt);
-            }
-        });
-
-        txtmanhanvien.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtmanhanvien.setToolTipText("");
-
         jLabel23.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 112));
         jLabel23.setText("Mã Nhân Viên");
+
+        manhanviencb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        madanhgiacb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -879,26 +873,27 @@ public void show_THONG_KE() throws SQLException {
                                 .addComponent(themthongke)))
                         .addGap(17, 17, 17)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(mathongketxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(txtdoanhthu)
-                                    .addComponent(madanhgiatxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                                .addGap(38, 38, 38))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                                 .addComponent(suathongke)
-                                .addGap(75, 75, 75)))
+                                .addGap(75, 75, 75))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(mathongketxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                        .addComponent(txtdoanhthu))
+                                    .addComponent(madanhgiacb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(38, 38, 38)))
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtmanhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbcccd12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbcccd12, 0, 175, Short.MAX_VALUE)
+                                    .addComponent(manhanviencb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGap(0, 8, Short.MAX_VALUE)
                                         .addComponent(jLabel21)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
                                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -927,9 +922,10 @@ public void show_THONG_KE() throws SQLException {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel22)
-                        .addComponent(madanhgiatxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtmanhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(madanhgiacb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel23)
+                        .addComponent(manhanviencb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
@@ -1408,8 +1404,8 @@ public void show_THONG_KE() throws SQLException {
         try {
         THONG_KE newThong_ke = new THONG_KE();
         newThong_ke.setMaThongKe(mathongketxt.getText());
-        newThong_ke.setMaDanhGia(madanhgiatxt.getText());
-        newThong_ke.setMaNV(txtmanhanvien.getText());
+        newThong_ke.setMaDanhGia(madanhgiacb.getSelectedItem().toString());
+        newThong_ke.setMaNV(manhanviencb.getSelectedItem().toString());
 
         // Chuyển đổi txtdoanhthu thành kiểu double
         double doanhThu = Double.parseDouble(txtdoanhthu.getText());
@@ -1447,8 +1443,8 @@ public void show_THONG_KE() throws SQLException {
          try {
         THONG_KE setThong_ke = new THONG_KE();
         setThong_ke.setMaThongKe(mathongketxt.getText());
-        setThong_ke.setMaDanhGia(madanhgiatxt.getText());
-        setThong_ke.setMaNV(txtmanhanvien.getText());
+        setThong_ke.setMaDanhGia(madanhgiacb.getSelectedItem().toString());
+        setThong_ke.setMaNV(manhanviencb.getSelectedItem().toString());
 
         // Chuyển đổi txtdoanhthu thành kiểu double
         double doanhThu = Double.parseDouble(txtdoanhthu.getText());
@@ -1524,10 +1520,6 @@ public void show_THONG_KE() throws SQLException {
     private void tbtkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtkMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbtkMouseClicked
-
-    private void madanhgiatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_madanhgiatxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_madanhgiatxtActionPerformed
 
     private void lammoithongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lammoithongkeActionPerformed
         // TODO add your handling code here:
@@ -1683,8 +1675,9 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton lammoithanhtoan;
     private javax.swing.JButton lammoithongke;
-    private javax.swing.JTextField madanhgiatxt;
+    private javax.swing.JComboBox<String> madanhgiacb;
     private javax.swing.JTextField mahdtxt;
+    private javax.swing.JComboBox<String> manhanviencb;
     private javax.swing.JTextField maptptxt;
     private javax.swing.JTextField mathongketxt;
     private javax.swing.JButton suathanhtoan;
@@ -1696,7 +1689,6 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JButton themthanhtoan;
     private javax.swing.JButton themthongke;
     private javax.swing.JTextField txtdoanhthu;
-    private javax.swing.JTextField txtmanhanvien;
     private javax.swing.JTextField txtngaydatphong;
     private javax.swing.JTextField txtngaythanhtoan;
     private javax.swing.JTextField txtngaythongke;
