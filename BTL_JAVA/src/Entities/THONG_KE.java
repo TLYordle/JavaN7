@@ -87,6 +87,9 @@ public class THONG_KE implements Serializable {
     public void setDoanhthu(double doanhthu) {
         this.doanhthu = doanhthu;
     }
+  
+   public THONG_KE() {
+    }
     
    @Override
     public String toString() {
