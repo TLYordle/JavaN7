@@ -220,4 +220,51 @@ public class WriteDataToDatabase {
             e.printStackTrace();
         }
     }
+    public static void ghi_khachhang_Vao_CSDL(KHACH_HANG kh) throws SQLException {
+        String query = "insert into khachhang (cccd,tenkh,gioitinh,diachi,quoctich) values (?, ?, ?, ?, ?)";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, kh.getCccd());
+            preparedStatement.setString(2, kh.getTenkh());
+            preparedStatement.setString(3, kh.getGioitinh());
+            preparedStatement.setString(4, kh.getDiachi());
+            preparedStatement.setString(5, kh.getQuoctich());   
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void capNhat_khachhang_Vao_CSDL(KHACH_HANG kh) throws SQLException {
+        String query = "update khachhang set tenkh = ?, gioitinh = ?, diachi = ?, quoctich = ? WHERE cccd = ?";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(5, kh.getCccd());
+            preparedStatement.setString(1, kh.getTenkh());
+            preparedStatement.setString(2, kh.getGioitinh());
+            preparedStatement.setString(3, kh.getDiachi());
+            preparedStatement.setString(4, kh.getQuoctich());   
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            System.out.println("Đã ghi phong vào CSDL thành công.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi
+        }      
+    }
+    public static void xoa_khachhang_Vao_CSDL(String cccd) throws SQLException{
+        String query = "delete from khachhang where cccd = ?";
+        try{
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, cccd);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

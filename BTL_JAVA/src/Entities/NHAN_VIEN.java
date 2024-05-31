@@ -12,13 +12,16 @@ import java.io.IOException;
 
 /**
  *
- * @author FPTSHOPKM4
+ * @author 
  */
 public class NHAN_VIEN implements Serializable{
     private String MaNV;
     private String tenNV;
-    private String TrangThai;
-    private String cccd;
+    private String ngaysinh;
+    private String sdt;
+    private String diachi;
+    private String lichlamviec;
+    private String chucvu;
 
     public NHAN_VIEN() {
     }
@@ -26,8 +29,11 @@ public class NHAN_VIEN implements Serializable{
     public NHAN_VIEN(String MaNV, String tenNV, String TrangThai, String cccd) {
         this.MaNV = MaNV;
         this.tenNV = tenNV;
-        this.TrangThai = TrangThai;
-        this.cccd = cccd;
+        this.ngaysinh = ngaysinh;
+        this.sdt = sdt;
+        this.diachi = diachi;
+        this.lichlamviec = lichlamviec;
+        this.chucvu = chucvu;
     }
 
     public String getMaNV() {
@@ -46,25 +52,47 @@ public class NHAN_VIEN implements Serializable{
         this.tenNV = tenNV;
     }
 
-    public String getTrangThai() {
-        return TrangThai;
+    public String getngaysinh() {
+        return ngaysinh;
     }
 
-    public void setTrangThai(String TrangThai) {
-        this.TrangThai = TrangThai;
+    public void setngaysinh(String ngaysinh) {
+        this.ngaysinh = ngaysinh;
     }
 
-    public String getcccd() {
-        return cccd;
+    public String getsdt() {
+        return sdt;
     }
 
-    public void setcccd(String cccd) {
-        this.cccd = cccd;
+    public void setsdt(String sdt) {
+        this.sdt = sdt;
+    }
+        public String getdiachi() {
+        return diachi;
+    }
+
+    public void setdiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
+        public String getlichlamviec() {
+        return lichlamviec;
+    }
+
+    public void setlichlamviec(String lichlamviec) {
+        this.lichlamviec = lichlamviec;
+    }
+    public String getchucvu() {
+        return chucvu;
+    }
+
+    public void setchucvu(String chucvu) {
+        this.chucvu = chucvu;
     }
 
     @Override
     public String toString() {
-        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", TrangThai=" + TrangThai + ", cccd=" + cccd +  '}';
+        return "NHAN_VIEN{" + "MaNV=" + MaNV + ", tenNV=" + tenNV + ", ngaysinh=" + ngaysinh + ", sdt=" + sdt + ",diachi=" + diachi + ",lichlamviec=" + lichlamviec + ",chucvu=" + chucvu +   '}';
     }
     
     public static void main(String[] args) throws SQLException{
