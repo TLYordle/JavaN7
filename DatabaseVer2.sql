@@ -55,8 +55,11 @@ create table phieuthuephong(
 go 
 create table hoadon(
 	mahd char(10) not null primary key,
-	maptp char(10),
-	constraint fk_hoadon_phieuthuephong foreign key (maptp) references phieuthuephong(maptp))
+	madv char(10),
+	tongtien nchar(1000),
+	ngaythanhtoan nchar(100),
+	tinhtranghoadon nchar(100),
+	constraint fk_hoadon_dichvu foreign key (madv) references dichvu(madv))
 go 
 create table danhgia(
 	madg char(10) not null primary key,
@@ -116,8 +119,8 @@ insert into phieuthuephong values
 ('PTP02','0987654321','P01','DV02','2024/05/23','2024/05/23')
 go
 insert into hoadon values
-('HD01','PTP02'),
-('HD02','PTP01')
+('HD01','DV01','1000000','31/05/2024','đã thanh toán'),
+('HD02','DV03','2000000','31/05/2024','chưa thanh toán')
 go
 insert into danhgia values
 ('DG01','0987654321','Hi'),
@@ -126,5 +129,5 @@ go
 insert into thongke values
 ('TK01','NV02','P01', 68.99,1000000),
 ('TK02','NV01','P02', 99.99,10000000)
+select *from hoadon	
 
-select * from khachhang
