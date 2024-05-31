@@ -183,7 +183,7 @@ public class DatabaseToList {
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 HOA_DON hoadon = new HOA_DON();
-                hoadon.setMaHoaDon(resultSet.getString("mahoadon").trim());
+                hoadon.setMaHoaDon(resultSet.getString("mahd").trim());
                 hoadon.setMadv(resultSet.getString("madv").trim());
                 hoadon.setTongTien(resultSet.getString("tongtien").trim());
                 hoadon.setNgayThanhToan(resultSet.getString("ngaythanhtoan").trim());
@@ -207,13 +207,11 @@ public class DatabaseToList {
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 THONG_KE tk = new THONG_KE();
-                tk.setMaDanhGia(resultSet.getString("madanhgia").trim());
-                tk.setCccd(resultSet.getString("cccd").trim());
-                tk.setMaThongKe(resultSet.getString("mathongke").trim());
+                tk.setMaThongKe(resultSet.getString("matk").trim());
                 tk.setMaNV(resultSet.getString("manv").trim());
-                tk.setNgayThongKe(resultSet.getDate("ngaythongke"));
-                tk.setTiLeDatPhong(resultSet.getFloat("tiledatphong"));
-                tk.setDoanhthu(resultSet.getDouble("doanhthu"));
+                tk.setMaphong(resultSet.getString("maphong").trim());
+                tk.setTiLeDatPhong(resultSet.getString("tyledatphong").trim());
+                tk.setDoanhthu(resultSet.getString("doanhthu").trim());
                 ThongKe.add(tk);
             }
             return ThongKe;
