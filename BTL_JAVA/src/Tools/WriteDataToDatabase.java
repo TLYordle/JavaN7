@@ -257,5 +257,56 @@ public class WriteDataToDatabase {
             e.printStackTrace();
         }
     }
+    public static void ghi_nhanvien_Vao_CSDL(NHAN_VIEN kh) throws SQLException {
+        String query = "insert into nhanvien (manv,tennv,ngaysinh,sdt,diachi,lichlamviec,chucvu) values (?, ?, ?, ?, ?, ?, ?)";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, kh.getMaNV());
+            preparedStatement.setString(2, kh.gettenNV());
+            preparedStatement.setString(3, kh.getngaysinh());
+            preparedStatement.setString(4, kh.getsdt());
+            preparedStatement.setString(5, kh.getdiachi());
+            preparedStatement.setString(6, kh.getlichlamviec()); 
+            preparedStatement.setString(7, kh.getchucvu()); 
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void capNhat_nhanvien_Vao_CSDL(NHAN_VIEN kh) throws SQLException {
+        String query = "update nhanvien set tennv = ?, ngaysinh = ?,sdt = ?, diachi = ?, lichlamviec = ?, chucvu = ? WHERE manv = ?";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(7, kh.getMaNV());
+            preparedStatement.setString(1, kh.gettenNV());
+            preparedStatement.setString(2, kh.getngaysinh());
+            preparedStatement.setString(3, kh.getsdt());
+            preparedStatement.setString(4, kh.getdiachi());
+            preparedStatement.setString(5, kh.getlichlamviec()); 
+            preparedStatement.setString(6, kh.getchucvu()); 
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            System.out.println("Đã ghi vào CSDL thành công.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi
+        }      
+    }
+    public static void xoa_nhanvien_Vao_CSDL(String manv) throws SQLException{
+        String query = "delete from nhanvien where manv = ?";
+        try{
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, manv);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
     
