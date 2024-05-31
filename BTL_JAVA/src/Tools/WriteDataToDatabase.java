@@ -117,7 +117,7 @@ public class WriteDataToDatabase {
         }
     }
     public static void ghi_hoadon_Vao_CSDL(HOA_DON hoadon) throws SQLException {
-        String query = "insert into HoaDon (mahd, madv, tongtien, ngaythanhtoan, tinhtranghoadon) values (?,?,?,?,?)";
+        String query = "insert into hoadon (mahd, madv, tongtien, ngaythanhtoan, tinhtranghoadon) values (?,?,?,?,?)";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -134,7 +134,7 @@ public class WriteDataToDatabase {
         }
     }
     public static void capNhat_hoadon_Vao_CSDL(HOA_DON hoadon) throws SQLException {
-        String query = "update HoaDon set madv = ?, tongtien = ?, ngaythanhtoan = ?, tinhtranghoadon = ? where mahd = ? ";
+        String query = "update hoadon set madv = ?, tongtien = ?, ngaythanhtoan = ?, tinhtranghoadon = ? where mahd = ? ";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -164,7 +164,7 @@ public class WriteDataToDatabase {
         }
     }
     public static void ghi_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
-        String query = "insert into ThongKe (matk,manv,maphong,tyledatphong,doanhthu) values (?, ?, ?, ?, ?)";
+        String query = "insert into thongke (matk,manv,maphong,tyledatphong,doanhthu) values (?, ?, ?, ?, ?)";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -181,7 +181,7 @@ public class WriteDataToDatabase {
         }
     }
     public static void capNhat_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
-        String query = "update thongke set manv = ?,maphong = ?, tileDatPhong = ?,doanhthu = ? WHERE matk = ?";
+        String query = "update thongke set manv = ?,maphong = ?, tyledatphong = ?,doanhthu = ? WHERE matk = ?";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
