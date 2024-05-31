@@ -71,8 +71,8 @@ create table thongke(
 	matk char(10) not null primary key,
 	manv char(10),
 	maphong char(10),
-	tyledatphong float,
-	doanhthu money,
+	tyledatphong nchar(1000),
+	doanhthu nchar(1000),
 	constraint fk_thongke_nhanvien foreign key (manv) references nhanvien(manv),
 	constraint fk_thongke_phong foreign key (maphong) references phong(maphong))
 go
@@ -127,7 +127,8 @@ insert into danhgia values
 ('DG02','0123456789','5 sao')
 go
 insert into thongke values
-('TK01','NV02','P01', 68.99,1000000),
-('TK02','NV01','P02', 99.99,10000000)
-select *from hoadon	
+('TK01','NV02','P01', '68.99','1000000'),
+('TK02','NV01','P02', '99.99','10000000')
+select *from thongke
+
 
