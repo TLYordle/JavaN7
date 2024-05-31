@@ -122,10 +122,13 @@ public class DatabaseToList {
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 NHAN_VIEN nv = new NHAN_VIEN();
-                nv.setMaNV(resultSet.getString("MaNV").trim());
-                nv.settenNV(resultSet.getString("tenNV").trim());
-                nv.setTrangThai(resultSet.getString("trangThai").trim());
-                nv.setcccd(resultSet.getString("cccd").trim());
+                nv.setMaNV(resultSet.getString("manv").trim());
+                nv.settenNV(resultSet.getString("tennv").trim());
+                nv.setngaysinh(resultSet.getString("ngaysinh").trim());
+                nv.setsdt(resultSet.getString("sdt").trim());
+                nv.setdiachi(resultSet.getString("diachi").trim());
+                nv.setlichlamviec(resultSet.getString("lichlamviec").trim());
+                nv.setchucvu(resultSet.getString("chucvu").trim());
                 nhanvienlist.add(nv);
             }
             return nhanvienlist;

@@ -239,7 +239,7 @@ public class WriteDataToDatabase {
             preparedStatement.setString(4, kh.getQuoctich());   
             preparedStatement.executeUpdate();
             preparedStatement.close();
-            System.out.println("Đã ghi phong vào CSDL thành công.");
+            System.out.println("Đã ghi vào CSDL thành công.");
         } catch (SQLException e) {
             e.printStackTrace();
             throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi

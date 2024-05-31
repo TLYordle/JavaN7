@@ -19,7 +19,7 @@ public class NHANVIENBLL {
         StringBuilder items = new StringBuilder();
         
         for(int i = 0;i<NHANVIENDAL.show().size();i++){
-            items.append(NHANVIENDAL.show().get(i).getcccd());
+            items.append(NHANVIENDAL.show().get(i).getMaNV());
             items.append("#");
         }
         

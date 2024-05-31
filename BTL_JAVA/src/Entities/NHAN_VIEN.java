@@ -26,7 +26,7 @@ public class NHAN_VIEN implements Serializable{
     public NHAN_VIEN() {
     }
 
-    public NHAN_VIEN(String MaNV, String tenNV, String TrangThai, String cccd) {
+    public NHAN_VIEN(String MaNV, String tenNV, String ngaysinh, String sdt, String diachi, String lichlamviec, String chucvu) {
         this.MaNV = MaNV;
         this.tenNV = tenNV;
         this.ngaysinh = ngaysinh;
@@ -35,6 +35,8 @@ public class NHAN_VIEN implements Serializable{
         this.lichlamviec = lichlamviec;
         this.chucvu = chucvu;
     }
+
+    
 
     public String getMaNV() {
         return MaNV;
