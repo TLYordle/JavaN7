@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author FPTSHOPKM4
  */
 public class connect_to_database {
-    private static final String url = "jdbc:sqlserver://LAPTOP-NPHA3CV1\\MSSQLSERVER01;databaseName=QLKS;encrypt=false;";
+    private static final String url = "jdbc:sqlserver://TLYordle;databaseName=QLKS;encrypt=false;";
     private static final String user = "sa";
     private static final String password = "123456";
     public static Connection getConnection() throws SQLException{

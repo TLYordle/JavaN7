@@ -37,7 +37,7 @@ public class NHANVIENDAL {
         }
         for(NHAN_VIEN item : list)
             if(a.getMaNV().equals(item.getMaNV())){
-                JOptionPane.showMessageDialog(null,"Mã CCCD đã tồn tại");
+                JOptionPane.showMessageDialog(null,"Mã Nhân Viên đã tồn tại");
                 return false;
             }
         
@@ -72,7 +72,7 @@ public class NHANVIENDAL {
             }
         if(index!=-1){
             list.remove(index);
-            WriteDataToDatabase.xoa_khachhang_Vao_CSDL(a.getMaNV());
+            WriteDataToDatabase.xoa_nhanvien_Vao_CSDL(a.getMaNV());
             return true;
         }
         else
