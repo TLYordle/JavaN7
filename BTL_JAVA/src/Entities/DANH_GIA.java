@@ -4,30 +4,57 @@
  */
 package Entities;
 
+import Tools.DatabaseToList;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author FPTSHOPKM4
  */
 public class DANH_GIA {
-     public AbstractStringBuilder getMaDG() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private String madg;
+    private String cccd;
+    private String nddg;
+
+    public DANH_GIA() {
     }
 
-    public void setMaDG(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public DANH_GIA(String madg, String cccd, String nddg) {
+        this.madg = madg;
+        this.cccd = cccd;
+        this.nddg = nddg;
+    } 
+
+    public String getMadg() {
+        return madg;
     }
 
-    public void setNdDG(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setMadg(String madg) {
+        this.madg = madg;
     }
 
-    public void setCccd(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getCccd() {
+        return cccd;
     }
 
-    private static class AbstractStringBuilder {
+    public void setCccd(String cccd) {
+        this.cccd = cccd;
+    }
 
-        public AbstractStringBuilder() {
-        }
+    public String getNddg() {
+        return nddg;
+    }
+
+    public void setNddg(String nddg) {
+        this.nddg = nddg;
+    }
+
+    @Override
+    public String toString() {
+        return "DANH_GIA{" + "madg=" + madg + ", cccd=" + cccd + ", nddg=" + nddg + '}';
+    }
+    public static void main(String[] args) throws SQLException{
+       ArrayList<DANH_GIA> danhSachDanhGia = DatabaseToList.Doc_danhgia_Tu_CSDL();
     }
 }

@@ -82,6 +82,11 @@ public class Phieu_Thue_Phong implements Serializable{
     public void setNgaytraphong(String ngaytraphong) {
         this.ngaytraphong = ngaytraphong;
     }
+
+    @Override
+    public String toString() {
+        return "Phieu_Thue_Phong{" + "maptp=" + maptp + ", cccd=" + cccd + ", maphong=" + maphong + ", madv=" + madv + ", ngaydatphong=" + ngaydatphong + ", ngaytraphong=" + ngaytraphong + '}';
+    }
     
     public static void main(String[] args) throws SQLException{
        ArrayList<Phieu_Thue_Phong> danhSachPhieuThuePhong = DatabaseToList.Doc_phieuthuephong_Tu_CSDL();
