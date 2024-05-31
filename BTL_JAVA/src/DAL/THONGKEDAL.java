@@ -3,21 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAL;
+import Entities.THONG_KE;
 import Tools.DatabaseToList;
 import Tools.WriteDataToDatabase;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-import Database.connect_to_database;
-import Entities.THONG_KE;
-import Entities.HOA_DON;
 /**
  *
  * @author Admin
