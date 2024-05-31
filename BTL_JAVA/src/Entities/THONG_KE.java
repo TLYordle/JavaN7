@@ -14,33 +14,23 @@ import java.io.IOException;
  * @author FPTSHOPKM4
  */
 public class THONG_KE implements Serializable {
-   private String maDanhGia;
-   private String cccd;
    private String maThongKe;
    private String maNV;
-   private Date ngayThongKe;
-    private float tiLeDatPhong;
-    private double doanhthu;
+   private String maphong;
+   private String tiLeDatPhong;
+   private String doanhthu;
 
-    public THONG_KE(String maDanhGia,  String maThongKe, String maNV, Date ngayThongKe, float tiLeDatPhong, double doanhthu) {
-        this.maDanhGia = maDanhGia;
+    public THONG_KE() {
+    }
+
+     public THONG_KE(String maThongKe, String maNV, String maphong, String tiLeDatPhong, String doanhthu) {
         this.maThongKe = maThongKe;
         this.maNV = maNV;
-        this.ngayThongKe = ngayThongKe;
+        this.maphong = maphong;
         this.tiLeDatPhong = tiLeDatPhong;
         this.doanhthu = doanhthu;
     }
 
-    public String getMaDanhGia() {
-        return maDanhGia;
-    }
-
-    public void setMaDanhGia(String maDanhGia) {
-        this.maDanhGia = maDanhGia;
-    }
-
-
-   
     public String getMaThongKe() {
         return maThongKe;
     }
@@ -57,41 +47,39 @@ public class THONG_KE implements Serializable {
         this.maNV = maNV;
     }
 
-    public Date getNgayThongKe() {
-        return ngayThongKe;
+    public String getMaphong() {
+        return maphong;
     }
 
-    public void setNgayThongKe(Date ngayThongKe) {
-        this.ngayThongKe = ngayThongKe;
+    public void setMaphong(String maphong) {
+        this.maphong = maphong;
     }
 
-     public float getTiLeDatPhong() {
+    public String getTiLeDatPhong() {
         return tiLeDatPhong;
     }
 
-    public void setTiLeDatPhong(float tiLeDatPhong) {
+    public void setTiLeDatPhong(String tiLeDatPhong) {
         this.tiLeDatPhong = tiLeDatPhong;
     }
 
-    public double getDoanhthu() {
+    public String getDoanhthu() {
         return doanhthu;
     }
 
-    public void setDoanhthu(double doanhthu) {
+    public void setDoanhthu(String doanhthu) {
         this.doanhthu = doanhthu;
-    }
-  
-   public THONG_KE() {
     }
 
     @Override
     public String toString() {
-        return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
+        return "THONG_KE{" + "maThongKe=" + maThongKe + ", maNV=" + maNV + ", maphong=" + maphong + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
     }
-    
+     
    
-    
     public static void main(String[] args) throws SQLException{
        ArrayList<THONG_KE> danhSachThong_kes = DatabaseToList.Doc_ThongKe_Tu_CSDL();
     }
+
+   
 }

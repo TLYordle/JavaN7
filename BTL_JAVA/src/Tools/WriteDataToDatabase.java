@@ -134,15 +134,15 @@ public class WriteDataToDatabase {
         }
     }
     public static void capNhat_hoadon_Vao_CSDL(HOA_DON hoadon) throws SQLException {
-        String query = "update HoaDon set bangGia += ?, tongTien = ?, ngayThanhToan = ?, tinhTrangHoaDon = 1 where maHD = ? ";
+        String query = "update HoaDon set madv = ?, tongtien = ?, ngaythanhtoan = ?, tinhtranghoadon = ? where mahd = ? ";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, hoadon.getMaHoaDon());
-            preparedStatement.setString(2, hoadon.getMadv());
-            preparedStatement.setString(3, hoadon.getTongTien());
-            preparedStatement.setString(4, hoadon.getNgayThanhToan()); 
-            preparedStatement.setString(5, hoadon.getTinhTrangHD());
+            preparedStatement.setString(5, hoadon.getMaHoaDon());
+            preparedStatement.setString(1, hoadon.getMadv());
+            preparedStatement.setString(2, hoadon.getTongTien());
+            preparedStatement.setString(3, hoadon.getNgayThanhToan()); 
+            preparedStatement.setString(4, hoadon.getTinhTrangHD());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             System.out.println("Đã ghi Hoa Don vào CSDL thành công.");
@@ -152,7 +152,7 @@ public class WriteDataToDatabase {
         }      
     }
     public static void xoa_hoadon_Vao_CSDL(String mahoadon) throws SQLException{
-        String query = "delete from hoadon where mahoadon = ?";
+        String query = "delete from hoadon where mahd = ?";
         try{
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -163,63 +163,53 @@ public class WriteDataToDatabase {
             e.printStackTrace();
         }
     }
-//    public static void ghi_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
-//        String query = "insert into ThongKe (maDanhGia,cccd,maThongKe,maNV,ngayThongKe,tiLeDatPhong,doanhthu) values (?, ?, ?, ?, ?, ?, ?)";
-//        try {
-//            Connection connection = connect_to_database.getConnection();
-//            PreparedStatement preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setString(1, tk.getMaDanhGia());
-//            preparedStatement.setString(2, tk.getCccd());
-//            preparedStatement.setString(3, tk.getMaThongKe());
-//            preparedStatement.setString(4, tk.getMaNV());
-//            preparedStatement.setDate(5, (Date) tk.getNgayThongKe());    
-//            preparedStatement.setFloat(6, tk.getTiLeDatPhong()); 
-//            preparedStatement.setDouble(7, tk.getDoanhthu());
-//            preparedStatement.executeUpdate();
-//            preparedStatement.close();
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    public static void capNhat_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
-//        String query = "update thongke set cccd = ?,maThongKe = ?, maNV = ?, ngayThongKe = ?, tileDatPhong = ?,doanhthu = ? WHERE maDanhGia = ?";
-//        try {
-//            Connection connection = connect_to_database.getConnection();
-//            PreparedStatement preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setString(1, tk.getMaDanhGia());
-//            preparedStatement.setString(2, tk.getCccd());
-//            preparedStatement.setString(3, tk.getMaThongKe());
-//            preparedStatement.setString(4, tk.getMaNV());
-//            preparedStatement.setDate(5, (Date) tk.getNgayThongKe());    
-//            preparedStatement.setFloat(6, tk.getTiLeDatPhong()); 
-//            preparedStatement.setDouble(7, tk.getDoanhthu()); 
-//            preparedStatement.executeUpdate();
-//            preparedStatement.close();
-//            System.out.println("Đã ghi thong ke vào CSDL thành công.");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi
-//        }      
-//    }
-//    public static void xoa_thongke_Vao_CSDL(String mathongke) throws SQLException{
-//        String query = "delete from thongke where mathongke = ?";
-//        String deleteHoaDonSQL = "DELETE FROM hoadon WHERE maptp = ?";
-//        try{
-//            Connection connection = connect_to_database.getConnection();
-//            PreparedStatement deleteHoaDonStmt = connection.prepareStatement(deleteHoaDonSQL);
-//            deleteHoaDonStmt = connection.prepareStatement(deleteHoaDonSQL);
-//            deleteHoaDonStmt.setString(1, mathongke);
-//            deleteHoaDonStmt.executeUpdate();
-//            
-//            PreparedStatement preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setString(1, mathongke);
-//            preparedStatement.executeUpdate();
-//            preparedStatement.close();
-//        }catch(SQLException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public static void ghi_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
+        String query = "insert into ThongKe (matk,manv,maphong,tyledatphong,doanhthu) values (?, ?, ?, ?, ?)";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, tk.getMaThongKe());
+            preparedStatement.setString(2, tk.getMaNV());
+            preparedStatement.setString(3, tk.getMaphong());
+            preparedStatement.setString(4, tk.getTiLeDatPhong());
+            preparedStatement.setString(5, tk.getDoanhthu());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void capNhat_thongke_Vao_CSDL(THONG_KE tk) throws SQLException {
+        String query = "update thongke set manv = ?,maphong = ?, tileDatPhong = ?,doanhthu = ? WHERE matk = ?";
+        try {
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, tk.getMaNV());
+            preparedStatement.setString(2, tk.getMaphong());
+            preparedStatement.setString(3, tk.getTiLeDatPhong());
+            preparedStatement.setString(4, tk.getDoanhthu());
+            preparedStatement.setString(5, tk.getMaThongKe());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            System.out.println("Đã ghi thong ke vào CSDL thành công.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e; // Ném lại ngoại lệ để xử lý ở nơi gọi
+        }      
+    }
+    public static void xoa_thongke_Vao_CSDL(String mathongke) throws SQLException{
+        String query = "delete from thongke where matk = ?";
+        try{
+            Connection connection = connect_to_database.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, mathongke);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
     public static void ghi_khachhang_Vao_CSDL(KHACH_HANG kh) throws SQLException {
         String query = "insert into khachhang (cccd,tenkh,gioitinh,diachi,quoctich) values (?, ?, ?, ?, ?)";
         try {
@@ -268,3 +258,4 @@ public class WriteDataToDatabase {
         }
     }
 }
+    

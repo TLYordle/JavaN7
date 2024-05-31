@@ -1124,27 +1124,20 @@
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lammoithanhtoan" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txttthd" min="-2" pref="170" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="cbdichvu" min="-2" pref="170" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="cbdichvu" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="lammoithanhtoan" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txttthd" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtngaythanhtoan" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="txtngaythanhtoan" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="110" max="32767" attributes="0"/>
+                              <EmptySpace pref="115" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1375,6 +1368,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="14" style="2"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="70" green="0" red="0" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="T&#xec;nh Tr&#x1ea1;ng"/>
               </Properties>
             </Component>
@@ -1460,9 +1459,9 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="mathongketxt" alignment="0" pref="170" max="32767" attributes="0"/>
-                                              <Component id="txtdoanhthu" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tldptxt" alignment="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="madanhgiacb" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="maphongcb" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
@@ -1471,15 +1470,15 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                                               <Component id="ngaythongke" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="manhanvien" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                                      <EmptySpace pref="54" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lammoithongke" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtngaythongke" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <Component id="doanhthutxt" min="-2" pref="175" max="-2" attributes="0"/>
                                           <Component id="manhanviencb" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1508,14 +1507,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="madanhgia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="madanhgiacb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="maphongcb" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="doanhthu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ngaythongke" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdoanhthu" alignment="3" max="-2" attributes="0"/>
-                          <Component id="txtngaythongke" alignment="3" max="-2" attributes="0"/>
+                          <Component id="tldptxt" alignment="3" max="-2" attributes="0"/>
+                          <Component id="doanhthutxt" alignment="3" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1551,7 +1550,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="70" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Doanh Thu"/>
+                <Property name="text" type="java.lang.String" value="T&#x1ef7; L&#x1ec7; &#x110;&#x1eb7;t Ph&#xf2;ng"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="ngaythongke">
@@ -1562,7 +1561,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="70" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ng&#xe0;y Th&#x1ed1;ng K&#xea;"/>
+                <Property name="text" type="java.lang.String" value="Doanh Thu"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="mathongketxt">
@@ -1575,7 +1574,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mathongketxtActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtngaythongke">
+            <Component class="javax.swing.JTextField" name="doanhthutxt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="14" style="0"/>
@@ -1583,7 +1582,7 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdoanhthu">
+            <Component class="javax.swing.JTextField" name="tldptxt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="14" style="0"/>
@@ -1693,7 +1692,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="M&#xe3; &#x110;&#xe1;nh Gi&#xe1;"/>
+                <Property name="text" type="java.lang.String" value="M&#xe3; Ph&#xf2;ng"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="manhanvien">
@@ -1722,7 +1721,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="madanhgiacb">
+            <Component class="javax.swing.JComboBox" name="maphongcb">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
