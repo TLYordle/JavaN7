@@ -232,9 +232,9 @@ public class DatabaseToList {
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 DANH_GIA dg = new DANH_GIA();
-                dg.setMaDG(resultSet.getString("madanhgia").trim());
-                dg.setNdDG(resultSet.getString("noidungdanhgia").trim());
-                dg.setCccd(resultSet.getString("cccd").trim());
+                dg.setMaDanhGia(resultSet.getString("madanhgia").trim());
+                dg.setNdDanhgia(resultSet.getString("noidungdanhgia").trim());
+                dg.setcCCD(resultSet.getString("cccd").trim());
                 listDanhGia.add(dg);
             }
             return listDanhGia;

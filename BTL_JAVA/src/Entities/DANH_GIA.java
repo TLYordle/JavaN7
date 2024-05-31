@@ -4,30 +4,59 @@
  */
 package Entities;
 
+import Tools.DatabaseToList;
+import java.io.Serializable;
+import java.sql.SQLException;
+import java.util.ArrayList;
 /**
  *
  * @author FPTSHOPKM4
  */
-public class DANH_GIA {
-     public AbstractStringBuilder getMaDG() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public class DANH_GIA implements Serializable{
+     private String maDanhGia;
+     private String cCCD;
+     private String ndDanhgia;
+
+    public DANH_GIA(){
+        super();
     }
 
-    public void setMaDG(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public DANH_GIA(String maDanhGia, String cCCD, String ndDanhgia) {
+        this.maDanhGia = maDanhGia;
+        this.cCCD = cCCD;
+        this.ndDanhgia = ndDanhgia;
     }
 
-    public void setNdDG(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getMaDanhGia() {
+        return maDanhGia;
     }
 
-    public void setCccd(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setMaDanhGia(String maDanhGia) {
+        this.maDanhGia = maDanhGia;
     }
 
-    private static class AbstractStringBuilder {
+    public String getcCCD() {
+        return cCCD;
+    }
 
-        public AbstractStringBuilder() {
-        }
+    public void setcCCD(String cCCD) {
+        this.cCCD = cCCD;
+    }
+
+    public String getNdDanhgia() {
+        return ndDanhgia;
+    }
+
+    public void setNdDanhgia(String ndDanhgia) {
+        this.ndDanhgia = ndDanhgia;
+    }
+
+    @Override
+    public String toString() {
+        return "DANH_GIA{" + "maDanhGia=" + maDanhGia + ", cCCD=" + cCCD + ", ndDanhgia=" + ndDanhgia + '}';
+    }
+    
+    public static void main(String[] args) throws SQLException{
+       ArrayList<DANH_GIA> danhSachDanh_gias = DatabaseToList.Doc_danhgia_Tu_CSDL();
     }
 }
