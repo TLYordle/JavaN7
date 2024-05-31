@@ -113,27 +113,27 @@ public class DatabaseToList {
             return new ArrayList<KHACH_HANG>();
         }      
     }
-    public static ArrayList<NHAN_VIEN> Doc_nhanvien_Tu_CSDL() {
-        ArrayList<NHAN_VIEN> nhanvienlist =  new ArrayList<>();
-        try{
-            Connection connection = connect_to_database.getConnection();
-            String query ="select * from nhanvien";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                NHAN_VIEN nv = new NHAN_VIEN();
-                nv.setMaNV(resultSet.getString("MaNV").trim());
-                nv.settenNV(resultSet.getString("tenNV").trim());
-                nv.setTrangThai(resultSet.getString("trangThai").trim());
-                nv.setcccd(resultSet.getString("cccd").trim());
-                nhanvienlist.add(nv);
-            }
-            return nhanvienlist;
-        }catch(SQLException e){
-            e.printStackTrace();
-            return new ArrayList<NHAN_VIEN>();
-        }      
-    }
+//    public static ArrayList<NHAN_VIEN> Doc_nhanvien_Tu_CSDL() {
+//        ArrayList<NHAN_VIEN> nhanvienlist =  new ArrayList<>();
+//        try{
+//            Connection connection = connect_to_database.getConnection();
+//            String query ="select * from nhanvien";
+//            Statement statement = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(query);
+//            while(resultSet.next()){
+//                NHAN_VIEN nv = new NHAN_VIEN();
+//                nv.setMaNV(resultSet.getString("MaNV").trim());
+//                nv.settenNV(resultSet.getString("tenNV").trim());
+//                nv.setTrangThai(resultSet.getString("trangThai").trim());
+//                nv.setcccd(resultSet.getString("cccd").trim());
+//                nhanvienlist.add(nv);
+//            }
+//            return nhanvienlist;
+//        }catch(SQLException e){
+//            e.printStackTrace();
+//            return new ArrayList<NHAN_VIEN>();
+//        }      
+//    }
     public static ArrayList<DICH_VU> Doc_dichvu_Tu_CSDL() {
         ArrayList<DICH_VU> dichvulist =  new ArrayList<>();
         try{
@@ -198,31 +198,31 @@ public class DatabaseToList {
     }
    
 
-    public static ArrayList<THONG_KE> Doc_ThongKe_Tu_CSDL() {
-        ArrayList<THONG_KE> ThongKe =  new ArrayList<>();
-        try{
-            Connection connection = connect_to_database.getConnection();
-            String query ="select * from thongke";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                THONG_KE tk = new THONG_KE();
-                tk.setMaDanhGia(resultSet.getString("madanhgia").trim());
-                tk.setCccd(resultSet.getString("cccd").trim());
-                tk.setMaThongKe(resultSet.getString("mathongke").trim());
-                tk.setMaNV(resultSet.getString("manv").trim());
-                tk.setNgayThongKe(resultSet.getDate("ngaythongke"));
-                tk.setTiLeDatPhong(resultSet.getFloat("tiledatphong"));
-                tk.setDoanhthu(resultSet.getDouble("doanhthu"));
-                ThongKe.add(tk);
-            }
-            return ThongKe;
-        }catch(SQLException e){
-            e.printStackTrace();
-            return new ArrayList<THONG_KE>();
-        } 
-            
-    }
+//    public static ArrayList<THONG_KE> Doc_ThongKe_Tu_CSDL() {
+//        ArrayList<THONG_KE> ThongKe =  new ArrayList<>();
+//        try{
+//            Connection connection = connect_to_database.getConnection();
+//            String query ="select * from thongke";
+//            Statement statement = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(query);
+//            while(resultSet.next()){
+//                THONG_KE tk = new THONG_KE();
+//                tk.setMaDanhGia(resultSet.getString("madanhgia").trim());
+//                tk.setCccd(resultSet.getString("cccd").trim());
+//                tk.setMaThongKe(resultSet.getString("mathongke").trim());
+//                tk.setMaNV(resultSet.getString("manv").trim());
+//                tk.setNgayThongKe(resultSet.getDate("ngaythongke"));
+//                tk.setTiLeDatPhong(resultSet.getFloat("tiledatphong"));
+//                tk.setDoanhthu(resultSet.getDouble("doanhthu"));
+//                ThongKe.add(tk);
+//            }
+//            return ThongKe;
+//        }catch(SQLException e){
+//            e.printStackTrace();
+//            return new ArrayList<THONG_KE>();
+//        } 
+//            
+//    }
     public static ArrayList<DANH_GIA> Doc_danhgia_Tu_CSDL() {
         ArrayList<DANH_GIA> listDanhGia =  new ArrayList<>();
         try{
