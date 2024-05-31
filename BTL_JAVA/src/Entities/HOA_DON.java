@@ -11,13 +11,24 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 public class HOA_DON implements Serializable{
-     private String maHoaDon;
-    private double bangGia;
-    private double tongTien;
-    private Date ngayThanhToan;
-    private int tinhTrangHD;
+    private String maHoaDon;
+    private String madv;
+    private String tongTien;
+    private String ngayThanhToan;
+    private String tinhTrangHD;
 
-     public String getMaHoaDon() {
+    public HOA_DON() {
+    }
+
+    public HOA_DON(String maHoaDon, String madv, String tongTien, String ngayThanhToan, String tinhTrangHD) {
+        this.maHoaDon = maHoaDon;
+        this.madv = madv;
+        this.tongTien = tongTien;
+        this.ngayThanhToan = ngayThanhToan;
+        this.tinhTrangHD = tinhTrangHD;
+    }
+
+    public String getMaHoaDon() {
         return maHoaDon;
     }
 
@@ -25,62 +36,44 @@ public class HOA_DON implements Serializable{
         this.maHoaDon = maHoaDon;
     }
 
-    public double getBangGia() {
-        return bangGia;
+    public String getMadv() {
+        return madv;
     }
 
-    public void setBangGia(double bangGia) {
-        this.bangGia = bangGia;
+    public void setMadv(String madv) {
+        this.madv = madv;
     }
 
-    public double getTongTien() {
+    public String getTongTien() {
         return tongTien;
     }
 
-    public void setTongTien(double tongTien) {
+    public void setTongTien(String tongTien) {
         this.tongTien = tongTien;
     }
 
-    public Date getNgayThanhToan() {
+    public String getNgayThanhToan() {
         return ngayThanhToan;
     }
 
-    public void setNgayThanhToan(Date ngayThanhToan) {
+    public void setNgayThanhToan(String ngayThanhToan) {
         this.ngayThanhToan = ngayThanhToan;
     }
 
-    public int getTinhTrangHD() {
+    public String getTinhTrangHD() {
         return tinhTrangHD;
     }
 
-    public void setTinhTrangHD(int tinhTrangHD) {
+    public void setTinhTrangHD(String tinhTrangHD) {
         this.tinhTrangHD = tinhTrangHD;
     }
-
     
-    public HOA_DON(String maHoaDon, double bangGia, double tongTien, Date ngayThanhToan, int tinhTrangHD) {
-        this.maHoaDon = maHoaDon;
-        this.bangGia = bangGia;
-        this.tongTien = tongTien;
-        this.ngayThanhToan = ngayThanhToan;
-        this.tinhTrangHD = tinhTrangHD;
-    }
-	
-    public HOA_DON() {
-	super();
-    }
-	
-    public HOA_DON(double tongTien, Date ngayThanhToan) {
-	super();
-	this.tongTien = tongTien;
-	this.ngayThanhToan = ngayThanhToan;
-	}
 
     @Override
     public String toString() {
-        return "HOA_DON{" + "maHoaDon=" + maHoaDon + ", bangGia=" + bangGia + ", tongTien=" + tongTien + ", ngayThanhToan=" + ngayThanhToan + ", tinhTrangHD=" + tinhTrangHD + '}';
+        return "HOA_DON{" + "maHoaDon=" + maHoaDon + ", madv=" + madv + ", tongTien=" + tongTien + ", ngayThanhToan=" + ngayThanhToan + ", tinhTrangHD=" + tinhTrangHD + '}';
     }
-    
+
     public static void main(String[] args) throws SQLException{
        ArrayList<HOA_DON> danhSachHoa_dons = DatabaseToList.Doc_HoaDon_Tu_CSDL();
     }

@@ -117,15 +117,15 @@ public class WriteDataToDatabase {
         }
     }
     public static void ghi_hoadon_Vao_CSDL(HOA_DON hoadon) throws SQLException {
-        String query = "insert into HoaDon (maHD, bangGia, tongTien, ngayThanhToan, tinhTrangHoaDon) values (?,?,?,?,?)";
+        String query = "insert into HoaDon (mahd, madv, tongtien, ngaythanhtoan, tinhtranghoadon) values (?,?,?,?,?)";
         try {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, hoadon.getMaHoaDon());
-            preparedStatement.setDouble(2, hoadon.getBangGia());
-            preparedStatement.setDouble(3, hoadon.getTongTien());
-            preparedStatement.setDate(4, (Date) hoadon.getNgayThanhToan()); 
-            preparedStatement.setInt(5, hoadon.getTinhTrangHD());
+            preparedStatement.setString(2, hoadon.getMadv());
+            preparedStatement.setString(3, hoadon.getTongTien());
+            preparedStatement.setString(4, hoadon.getNgayThanhToan()); 
+            preparedStatement.setString(5, hoadon.getTinhTrangHD());
             preparedStatement.executeUpdate();
             preparedStatement.close();
 
@@ -139,10 +139,10 @@ public class WriteDataToDatabase {
             Connection connection = connect_to_database.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, hoadon.getMaHoaDon());
-            preparedStatement.setDouble(2, hoadon.getBangGia());
-            preparedStatement.setDouble(3, hoadon.getTongTien());
-            preparedStatement.setDate(4, (Date) hoadon.getNgayThanhToan()); 
-            preparedStatement.setInt(5, hoadon.getTinhTrangHD());
+            preparedStatement.setString(2, hoadon.getMadv());
+            preparedStatement.setString(3, hoadon.getTongTien());
+            preparedStatement.setString(4, hoadon.getNgayThanhToan()); 
+            preparedStatement.setString(5, hoadon.getTinhTrangHD());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             System.out.println("Đã ghi Hoa Don vào CSDL thành công.");

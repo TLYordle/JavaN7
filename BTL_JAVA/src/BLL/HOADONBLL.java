@@ -30,13 +30,13 @@ public class HOADONBLL {
     public static TableModel show(){
         
         ArrayList<HOA_DON> list= HOADONDAL.show();
-        String[] columnNames = {"STT","Mã Hóa Đơn","Bảng Giá","Tổng Tiền","Ngày Thanh Toán","Trang Hóa Đơn"};
+        String[] columnNames = {"STT","Mã Hóa Đơn","Mã Dịch Vụ","Tổng Tiền","Ngày Thanh Toán","Tình Trạng Hóa Đơn"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int row = 0;
         for(HOA_DON c : list){
             data[row][0] = (row + 1);
             data[row][1] = c.getMaHoaDon();
-            data[row][2] = c.getBangGia();
+            data[row][2] = c.getMadv();
             data[row][3] = c.getTongTien();
             data[row][4] = c.getNgayThanhToan();
             data[row][5] = c.getTinhTrangHD();
