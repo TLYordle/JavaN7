@@ -22,9 +22,8 @@ public class THONG_KE implements Serializable {
     private float tiLeDatPhong;
     private double doanhthu;
 
-    public THONG_KE(String maDanhGia, String cccd, String maThongKe, String maNV, Date ngayThongKe, float tiLeDatPhong, double doanhthu) {
+    public THONG_KE(String maDanhGia,  String maThongKe, String maNV, Date ngayThongKe, float tiLeDatPhong, double doanhthu) {
         this.maDanhGia = maDanhGia;
-        this.cccd = cccd;
         this.maThongKe = maThongKe;
         this.maNV = maNV;
         this.ngayThongKe = ngayThongKe;
@@ -40,14 +39,8 @@ public class THONG_KE implements Serializable {
         this.maDanhGia = maDanhGia;
     }
 
-    public String getCccd() {
-        return cccd;
-    }
 
-    public void setCccd(String cccd) {
-        this.cccd = cccd;
-    }
-
+   
     public String getMaThongKe() {
         return maThongKe;
     }
@@ -90,11 +83,13 @@ public class THONG_KE implements Serializable {
   
    public THONG_KE() {
     }
-    
-   @Override
+
+    @Override
     public String toString() {
-        return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", cccd=" + cccd + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
+        return "THONG_KE{" + "maDanhGia=" + maDanhGia + ", maThongKe=" + maThongKe + ", maNV=" + maNV + ", ngayThongKe=" + ngayThongKe + ", tiLeDatPhong=" + tiLeDatPhong + ", doanhthu=" + doanhthu + '}';
     }
+    
+   
     
     public static void main(String[] args) throws SQLException{
        ArrayList<THONG_KE> danhSachThong_kes = DatabaseToList.Doc_ThongKe_Tu_CSDL();

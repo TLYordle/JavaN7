@@ -146,7 +146,6 @@ public void show_THONG_KE() throws SQLException {
         txttthd = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        cccd = new javax.swing.JLabel();
         mathongke = new javax.swing.JLabel();
         doanhthu = new javax.swing.JLabel();
         ngaythongke = new javax.swing.JLabel();
@@ -159,7 +158,6 @@ public void show_THONG_KE() throws SQLException {
         lammoithongke = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tbtk = new javax.swing.JTable();
-        cbcccd12 = new javax.swing.JComboBox<>();
         madanhgia = new javax.swing.JLabel();
         manhanvien = new javax.swing.JLabel();
         manhanviencb = new javax.swing.JComboBox<>();
@@ -709,28 +707,27 @@ public void show_THONG_KE() throws SQLException {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(suathanhtoan)
                                 .addGap(47, 47, 47)))
-                        .addGap(15, 15, Short.MAX_VALUE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(21, 21, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(xoathanhtoan)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel14))
-                                .addGap(48, 48, 48)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(lammoithanhtoan)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cbdichvu, 0, 170, Short.MAX_VALUE)
-                                            .addComponent(txttthd))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(48, 48, 48)
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lammoithanhtoan)
+                                            .addComponent(txttthd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtngaythanhtoan, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)))))
+                                .addComponent(txtngaythanhtoan, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -779,10 +776,6 @@ public void show_THONG_KE() throws SQLException {
         AdminTabPane.addTab("Quản lý nhân viên", jPanel11);
 
         jPanel12.setBackground(new java.awt.Color(204, 255, 255));
-
-        cccd.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        cccd.setForeground(new java.awt.Color(0, 0, 102));
-        cccd.setText("CCCD");
 
         mathongke.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         mathongke.setForeground(new java.awt.Color(0, 0, 102));
@@ -838,13 +831,13 @@ public void show_THONG_KE() throws SQLException {
 
         tbtk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Mã Thống Kê", "CCCD", "Mã Đánh Giá", "Mã Nhân Viên", "Doanh Thu", "Ngày Thống Kê"
+                "STT", "Mã Thống Kê", "Mã Đánh Giá", "Mã Nhân Viên", "Doanh Thu", "Ngày Thống Kê"
             }
         ));
         tbtk.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -853,8 +846,6 @@ public void show_THONG_KE() throws SQLException {
             }
         });
         jScrollPane6.setViewportView(tbtk);
-
-        cbcccd12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         madanhgia.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         madanhgia.setForeground(new java.awt.Color(0, 0, 102));
@@ -902,24 +893,18 @@ public void show_THONG_KE() throws SQLException {
                                 .addGap(38, 38, 38)))
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(manhanvien)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbcccd12, 0, 175, Short.MAX_VALUE)
-                                    .addComponent(manhanviencb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel12Layout.createSequentialGroup()
                                         .addGap(0, 8, Short.MAX_VALUE)
-                                        .addComponent(ngaythongke)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
+                                        .addComponent(ngaythongke))
                                     .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addGap(35, 35, 35)
-                                        .addComponent(cccd)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(manhanvien)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lammoithongke)
-                                    .addComponent(txtngaythongke, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtngaythongke, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(manhanviencb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
                                 .addComponent(xoathongke)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -933,16 +918,12 @@ public void show_THONG_KE() throws SQLException {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mathongke)
                     .addComponent(mathongketxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cccd)
-                    .addComponent(cbcccd12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manhanviencb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manhanvien))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(madanhgia)
-                        .addComponent(madanhgiacb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(manhanvien)
-                        .addComponent(manhanviencb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(madanhgia)
+                    .addComponent(madanhgiacb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(doanhthu)
@@ -1611,11 +1592,9 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JButton btnThem;
     private javax.swing.JButton but_Sua;
     private javax.swing.JComboBox<String> cbcccd;
-    private javax.swing.JComboBox<String> cbcccd12;
     private javax.swing.JComboBox<String> cbdichvu;
     private javax.swing.JComboBox<String> cbmadv;
     private javax.swing.JComboBox<String> cbmaphong;
-    private javax.swing.JLabel cccd;
     private javax.swing.JLabel doanhthu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

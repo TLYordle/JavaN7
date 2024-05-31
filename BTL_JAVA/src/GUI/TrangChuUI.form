@@ -857,26 +857,25 @@
                                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="30" pref="15" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="30" pref="21" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="xoathanhtoan" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="lammoithanhtoan" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="214" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="cbdichvu" pref="170" max="32767" attributes="0"/>
-                                                  <Component id="txttthd" max="32767" attributes="0"/>
+                                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lammoithanhtoan" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txttthd" min="-2" pref="170" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="cbdichvu" min="-2" pref="170" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -884,9 +883,9 @@
                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtngaythanhtoan" min="-2" pref="175" max="-2" attributes="0"/>
-                                      <EmptySpace pref="116" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="110" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1205,30 +1204,22 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="manhanvien" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="cbcccd12" pref="175" max="32767" attributes="0"/>
-                                          <Component id="manhanviencb" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                                               <Component id="ngaythongke" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="48" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                              <Component id="cccd" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
                                               <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="manhanvien" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace pref="48" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lammoithongke" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtngaythongke" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <Component id="manhanviencb" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1250,19 +1241,13 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="mathongke" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="mathongketxt" alignment="3" max="-2" attributes="0"/>
-                          <Component id="cccd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbcccd12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="manhanviencb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="manhanvien" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="madanhgia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="madanhgiacb" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="manhanvien" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="manhanviencb" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="madanhgia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="madanhgiacb" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1286,17 +1271,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="cccd">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="2"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="CCCD"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="mathongke">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1397,10 +1371,9 @@
                 <Component class="javax.swing.JTable" name="tbtk">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="4">
+                      <Table columnCount="6" rowCount="4">
                         <Column editable="true" title="STT" type="java.lang.Object"/>
                         <Column editable="true" title="M&#xe3; Th&#x1ed1;ng K&#xea;" type="java.lang.Object"/>
-                        <Column editable="true" title="CCCD" type="java.lang.Object"/>
                         <Column editable="true" title="M&#xe3; &#x110;&#xe1;nh Gi&#xe1;" type="java.lang.Object"/>
                         <Column editable="true" title="M&#xe3; Nh&#xe2;n Vi&#xea;n" type="java.lang.Object"/>
                         <Column editable="true" title="Doanh Thu" type="java.lang.Object"/>
@@ -1409,11 +1382,6 @@
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -1456,21 +1424,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JComboBox" name="cbcccd12">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="madanhgia">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

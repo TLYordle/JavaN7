@@ -30,17 +30,16 @@ public class THONGKEBLL {
     public static TableModel show(){
         
         ArrayList<THONG_KE> list= THONGKEDAL.show();
-        String[] columnNames = {"STT","Mã Thống Kê","CCCD","Mã Đánh Giá","Mã Nhân Viên","Doanh Thu","Ngày Thống Kê"};
+        String[] columnNames = {"STT","Mã Thống Kê","Mã Đánh Giá","Mã Nhân Viên","Doanh Thu","Ngày Thống Kê"};
         Object[][] data = new Object[list.size()][columnNames.length];
         int row = 0;
         for(THONG_KE c : list){
             data[row][0] = (row + 1);
             data[row][1] = c.getMaThongKe();
-            data[row][2] = c.getCccd();
-            data[row][3] = c.getMaDanhGia();
-            data[row][4] = c.getMaNV();
-            data[row][5] = c.getDoanhthu();
-            data[row][6] = c.getNgayThongKe();
+            data[row][2] = c.getMaDanhGia();
+            data[row][3] = c.getMaNV();
+            data[row][4] = c.getDoanhthu();
+            data[row][5] = c.getNgayThongKe();
             row++;
         }
         DefaultTableModel table = new DefaultTableModel(data,columnNames){
