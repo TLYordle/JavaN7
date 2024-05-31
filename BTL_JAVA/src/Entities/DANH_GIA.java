@@ -5,56 +5,58 @@
 package Entities;
 
 import Tools.DatabaseToList;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 /**
  *
  * @author FPTSHOPKM4
  */
-public class DANH_GIA {
-    private String madg;
-    private String cccd;
-    private String nddg;
+public class DANH_GIA implements Serializable{
+     private String maDanhGia;
+     private String cCCD;
+     private String ndDanhgia;
 
-    public DANH_GIA() {
+    public DANH_GIA(){
+        super();
     }
 
-    public DANH_GIA(String madg, String cccd, String nddg) {
-        this.madg = madg;
-        this.cccd = cccd;
-        this.nddg = nddg;
-    } 
-
-    public String getMadg() {
-        return madg;
+    public DANH_GIA(String maDanhGia, String cCCD, String ndDanhgia) {
+        this.maDanhGia = maDanhGia;
+        this.cCCD = cCCD;
+        this.ndDanhgia = ndDanhgia;
     }
 
-    public void setMadg(String madg) {
-        this.madg = madg;
+    public String getMaDanhGia() {
+        return maDanhGia;
     }
 
-    public String getCccd() {
-        return cccd;
+    public void setMaDanhGia(String maDanhGia) {
+        this.maDanhGia = maDanhGia;
     }
 
-    public void setCccd(String cccd) {
-        this.cccd = cccd;
+    public String getcCCD() {
+        return cCCD;
     }
 
-    public String getNddg() {
-        return nddg;
+    public void setcCCD(String cCCD) {
+        this.cCCD = cCCD;
     }
 
-    public void setNddg(String nddg) {
-        this.nddg = nddg;
+    public String getNdDanhgia() {
+        return ndDanhgia;
+    }
+
+    public void setNdDanhgia(String ndDanhgia) {
+        this.ndDanhgia = ndDanhgia;
     }
 
     @Override
     public String toString() {
-        return "DANH_GIA{" + "madg=" + madg + ", cccd=" + cccd + ", nddg=" + nddg + '}';
+        return "DANH_GIA{" + "maDanhGia=" + maDanhGia + ", cCCD=" + cCCD + ", ndDanhgia=" + ndDanhgia + '}';
     }
+    
     public static void main(String[] args) throws SQLException{
-       ArrayList<DANH_GIA> danhSachDanhGia = DatabaseToList.Doc_danhgia_Tu_CSDL();
+       ArrayList<DANH_GIA> danhSachDanh_gias = DatabaseToList.Doc_danhgia_Tu_CSDL();
     }
 }

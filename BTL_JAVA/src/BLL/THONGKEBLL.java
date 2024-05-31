@@ -5,14 +5,10 @@
 package BLL;
 import DAL.THONGKEDAL;
 import Entities.THONG_KE;
-import Tools.DatabaseToList;
-import Tools.WriteDataToDatabase;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 /**
