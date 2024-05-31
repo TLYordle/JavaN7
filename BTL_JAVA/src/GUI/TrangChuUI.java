@@ -40,7 +40,7 @@ public class TrangChuUI extends javax.swing.JFrame {
         cbcccd.setModel(KHACHHANGBLL.c_show());
         cbmadv.setModel(DICHVUBLL.cbb_show());
         show_HOA_DON();
-        cbbanggia.setModel(LOAIDICHVUBLL.cbb_show());
+        cbdichvu.setModel(LOAIDICHVUBLL.cbb_show());
         show_THONG_KE();
         cbcccd12.setModel(KHACHHANGBLL.c_show());
         madanhgiacb.setModel(DANHGIABLL.cbb_show());
@@ -141,7 +141,9 @@ public void show_THONG_KE() throws SQLException {
         lammoithanhtoan = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbhd = new javax.swing.JTable();
-        cbbanggia = new javax.swing.JComboBox<>();
+        cbdichvu = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        txttthd = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         cccd = new javax.swing.JLabel();
@@ -590,7 +592,7 @@ public void show_THONG_KE() throws SQLException {
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel13.setText("Bảng Giá");
+        jLabel13.setText("Dịch Vụ");
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 112));
@@ -647,13 +649,13 @@ public void show_THONG_KE() throws SQLException {
 
         tbhd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Mã Hóa đơn", "Tổng Tiền", "Ngày Thanh Toán"
+                "STT", "Mã Hóa đơn", "Mã Dịch Vụ", "Tổng Tiền", "Ngày Thanh Toán", "Tình Trạng"
             }
         ));
         tbhd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -663,10 +665,18 @@ public void show_THONG_KE() throws SQLException {
         });
         jScrollPane5.setViewportView(tbhd);
 
-        cbbanggia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbbanggia.addActionListener(new java.awt.event.ActionListener() {
+        cbdichvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbdichvu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbanggiaActionPerformed(evt);
+                cbdichvuActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Tình Trạng");
+
+        txttthd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttthdActionPerformed(evt);
             }
         });
 
@@ -699,27 +709,28 @@ public void show_THONG_KE() throws SQLException {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(suathanhtoan)
                                 .addGap(47, 47, 47)))
-                        .addGap(30, 30, 30)
+                        .addGap(15, 15, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(xoathanhtoan)
-                                    .addComponent(jLabel13))
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14))
+                                .addGap(48, 48, 48)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addGap(48, 48, 48)
                                         .addComponent(lammoithanhtoan)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE))
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addGap(78, 78, 78)
-                                        .addComponent(cbbanggia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cbdichvu, 0, 170, Short.MAX_VALUE)
+                                            .addComponent(txttthd))
                                         .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(txtngaythanhtoan, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -730,8 +741,12 @@ public void show_THONG_KE() throws SQLException {
                     .addComponent(jLabel12)
                     .addComponent(mahdtxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(cbbanggia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(cbdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txttthd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel17)
@@ -1253,105 +1268,66 @@ public void show_THONG_KE() throws SQLException {
     }//GEN-LAST:event_mahdtxtActionPerformed
 
     private void themthanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themthanhtoanActionPerformed
-        try {
-        // Kiểm tra giá trị đầu vào
-        if (mahdtxt.getText().isEmpty() || txttongtien.getText().isEmpty() || 
-            txtngaythanhtoan.getText().isEmpty() || cbbanggia.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin!");
-            return;
-        }
-
-        // Tạo một đối tượng HOA_DON mới
-        HOA_DON newHoa_don = new HOA_DON();
-        
-        // Thiết lập các giá trị cho đối tượng HOA_DON
-        newHoa_don.setMaHoaDon(mahdtxt.getText());
-        
-        try {
-            double tongTien = Double.parseDouble(txttongtien.getText());
-            newHoa_don.setTongTien(tongTien);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Tổng tiền phải là số.");
-            return;
-        }
-
-        try {
-            double bangGia = Double.parseDouble(cbbanggia.getSelectedItem().toString());
-            newHoa_don.setBangGia(bangGia);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Bảng giá phải là số.");
-            return;
-        }
-
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date ngayThanhToan = sdf.parse(txtngaythanhtoan.getText());
-            newHoa_don.setNgayThanhToan(ngayThanhToan);
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Ngày thanh toán phải có định dạng dd/MM/yyyy.");
-            return;
-        }
-
-        try {
-            // Thực hiện chèn hóa đơn mới vào cơ sở dữ liệu
-            if (HOADONDAL.insert(HOADONDAL.show(), newHoa_don)) {
-                JOptionPane.showMessageDialog(null, "Thêm Hóa đơn thành công!");
-                // Hiển thị thông tin hóa đơn
-                show_HOA_DON();
-            } else {
-                JOptionPane.showMessageDialog(null, "Không thể thêm hóa đơn. Vui lòng thử lại.");
+        try{
+            HOA_DON newhd = new HOA_DON();
+            newhd.setMaHoaDon(mahdtxt.getText());
+            newhd.setMadv(cbdichvu.getSelectedItem().toString());
+            newhd.setTongTien(txttongtien.getText());
+            newhd.setNgayThanhToan(txtngaythanhtoan.getText());
+            newhd.setTinhTrangHD(txttthd.getText());
+            try {
+                if(HOADONDAL.insert(HOADONDAL.show(),newhd)){
+                    JOptionPane.showMessageDialog(null,"Thêm Hóa đơn thành công!");
+                    try {
+                        show_HOA_DON();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra khi thêm hóa đơn: " + ex.getMessage());
-        }
 
-        // Xóa nội dung các JTextField
-        delJtextFieldTbSach();
-    } catch (HeadlessException | IOException e) {
-        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
-        JOptionPane.showMessageDialog(null, "Có lỗi xảy ra: " + e.getMessage());
-    }
+            delJtextFieldTbSach();
+        }
+        catch(HeadlessException | IOException | NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Có lỗi xảy ra: "+e.getMessage());
+        }
     }//GEN-LAST:event_themthanhtoanActionPerformed
 
     private void suathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suathanhtoanActionPerformed
         // TODO add your handling code here:
-     try {
-        HOA_DON setHoa_don = new HOA_DON();
-        setHoa_don.setMaHoaDon(MaPhongtxt.getText());
-
-        // Chuyển đổi txttongtien thành kiểu double
-        double tongTien = Double.parseDouble(txttongtien.getText());
-        setHoa_don.setTongTien(tongTien);
-
-        // Chuyển đổi txtngaythanhtoan thành kiểu Date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date ngayThanhToan = dateFormat.parse(txtngaythanhtoan.getText());
-        setHoa_don.setNgayThanhToan(ngayThanhToan);
-
-        // Chuyển đổi cbbanggia thành kiểu double
-        double bangGia = Double.parseDouble(cbbanggia.getSelectedItem().toString());
-        setHoa_don.setBangGia(bangGia);
-
-        int reply = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn sửa?", "Thông báo", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            try {
-                if (HOADONDAL.update(HOADONDAL.show(), setHoa_don)) {
-                    JOptionPane.showMessageDialog(this, "Sửa Hóa đơn thành công!");
-                    show_HOA_DON();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Mã Hóa đơn không tồn tại!");
+     try{
+            HOA_DON sethd = new HOA_DON();
+            sethd.setMaHoaDon(mahdtxt.getText());
+            sethd.setMadv(cbdichvu.getSelectedItem().toString());
+            sethd.setTongTien(txttongtien.getText());
+            sethd.setNgayThanhToan(txtngaythanhtoan.getText());
+            sethd.setTinhTrangHD(txttthd.getText());
+            int reply = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn sửa?", "Thông báo", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                try {
+                    if(HOADONDAL.update(HOADONDAL.show(),sethd)){
+                        JOptionPane.showMessageDialog(null,"Sửa Hóa đơn thành công!");
+                        try {
+                            show_HOA_DON();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Mã Hóa đơn không tồn tại!");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "Lỗi khi cập nhật hóa đơn: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
+                delJtextFieldTbSach();
             }
-            delJtextFieldTbSach();
+
         }
-    } catch (HeadlessException | IOException | NumberFormatException | ParseException e) {
-        Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, e);
-        JOptionPane.showMessageDialog(this, "Có lỗi xảy ra: " + e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
-    }
+        catch(HeadlessException | IOException | NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Có lỗi xảy ra: "+e.getMessage());
+        }
      
     }//GEN-LAST:event_suathanhtoanActionPerformed
 
@@ -1364,12 +1340,12 @@ public void show_THONG_KE() throws SQLException {
                 JOptionPane.showMessageDialog(rootPane,"Không có thông tin để xóa");
             }
             else{
-                HOA_DON delHoa_don = new HOA_DON();
-                delHoa_don.setMaHoaDon(mahdtxt.getText());
+                HOA_DON delhd = new HOA_DON();
+                delhd.setMaHoaDon(mahdtxt.getText());
                 int reply = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa?", "Thông báo", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
                     try {
-                        HOADONDAL.delete(HOADONDAL.show(), delHoa_don);
+                        HOADONDAL.delete(HOADONDAL.show(), delhd);
                     } catch (SQLException ex) {
                         Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -1377,7 +1353,7 @@ public void show_THONG_KE() throws SQLException {
                     model.setRowCount(0);
                     try {
                         show_HOA_DON();
-                        JOptionPane.showMessageDialog(null,"Xóa Hóa đơn thành công!");
+                        JOptionPane.showMessageDialog(null,"Xóa Hóa Đơn thành công!");
                     } catch (SQLException ex) {
                         Logger.getLogger(TrangChuUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -1537,9 +1513,9 @@ public void show_THONG_KE() throws SQLException {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttongtienActionPerformed
 
-    private void cbbanggiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbanggiaActionPerformed
+    private void cbdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbdichvuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbanggiaActionPerformed
+    }//GEN-LAST:event_cbdichvuActionPerformed
 
     private void MaLoaiPhongcboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaLoaiPhongcboActionPerformed
         // TODO add your handling code here:
@@ -1558,6 +1534,10 @@ public void show_THONG_KE() throws SQLException {
     private void tbPhongAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbPhongAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_tbPhongAncestorAdded
+
+    private void txttthdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttthdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttthdActionPerformed
     
     public void show_Row_tbPhieuthuephong(){
         int i = tbptp.getSelectedRow();
@@ -1630,9 +1610,9 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JTextField TinhTrangPhongtxt;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton but_Sua;
-    private javax.swing.JComboBox<String> cbbanggia;
     private javax.swing.JComboBox<String> cbcccd;
     private javax.swing.JComboBox<String> cbcccd12;
+    private javax.swing.JComboBox<String> cbdichvu;
     private javax.swing.JComboBox<String> cbmadv;
     private javax.swing.JComboBox<String> cbmaphong;
     private javax.swing.JLabel cccd;
@@ -1646,6 +1626,7 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -1696,6 +1677,7 @@ public void show_THONG_KE() throws SQLException {
     private javax.swing.JTextField txtngaythongke;
     private javax.swing.JTextField txtngaytraphong;
     private javax.swing.JTextField txttongtien;
+    private javax.swing.JTextField txttthd;
     private javax.swing.JButton xoathanhtoan;
     private javax.swing.JButton xoathongke;
     // End of variables declaration//GEN-END:variables

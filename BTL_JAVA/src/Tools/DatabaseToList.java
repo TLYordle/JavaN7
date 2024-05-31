@@ -184,10 +184,10 @@ public class DatabaseToList {
             while(resultSet.next()){
                 HOA_DON hoadon = new HOA_DON();
                 hoadon.setMaHoaDon(resultSet.getString("mahoadon").trim());
-                hoadon.setBangGia(resultSet.getDouble("banggia"));
-                hoadon.setTongTien(resultSet.getDouble("tongtien"));
-                hoadon.setNgayThanhToan(resultSet.getDate("ngaythanhtoan"));
-                hoadon.setTinhTrangHD(resultSet.getInt("tinhtrangtinhHD"));
+                hoadon.setMadv(resultSet.getString("madv").trim());
+                hoadon.setTongTien(resultSet.getString("tongtien").trim());
+                hoadon.setNgayThanhToan(resultSet.getString("ngaythanhtoan").trim());
+                hoadon.setTinhTrangHD(resultSet.getString("tinhtranghoadon").trim());
                 HoaDon.add(hoadon);
             }
             return HoaDon;
