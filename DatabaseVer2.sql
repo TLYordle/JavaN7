@@ -61,12 +61,6 @@ create table hoadon(
 	tinhtranghoadon nchar(100),
 	constraint fk_hoadon_dichvu foreign key (madv) references dichvu(madv))
 go 
-create table danhgia(
-	madg char(10) not null primary key,
-	cccd nvarchar(20),
-	noidungdg nchar(1000),
-	constraint fk_danhgia_khachhang foreign key (cccd) references khachhang(cccd))
-go 
 create table thongke(
 	matk char(10) not null primary key,
 	manv char(10),
@@ -129,6 +123,6 @@ go
 insert into thongke values
 ('TK01','NV02','P01', '68.99','1000000'),
 ('TK02','NV01','P02', '99.99','10000000')
-select *from thongke
+select *from phieuthuephong
 
 

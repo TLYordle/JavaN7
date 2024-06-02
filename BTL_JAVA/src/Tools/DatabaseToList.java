@@ -224,25 +224,4 @@ public class DatabaseToList {
         } 
             
     }
-    public static ArrayList<DANH_GIA> Doc_danhgia_Tu_CSDL() {
-        ArrayList<DANH_GIA> listDanhGia =  new ArrayList<>();
-        try{
-            Connection connection = connect_to_database.getConnection();
-            String query ="select * from danhgia";
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
-                DANH_GIA dg = new DANH_GIA();
-                dg.setMaDanhGia(resultSet.getString("madanhgia").trim());
-                dg.setNdDanhgia(resultSet.getString("noidungdanhgia").trim());
-                dg.setcCCD(resultSet.getString("cccd").trim());
-                listDanhGia.add(dg);
-            }
-            return listDanhGia;
-        }catch(SQLException e){
-            e.printStackTrace();
-            return new ArrayList<DANH_GIA>();
-        } 
-            
-    }
 }

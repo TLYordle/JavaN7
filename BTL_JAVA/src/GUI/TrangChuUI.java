@@ -42,7 +42,6 @@ public class TrangChuUI extends javax.swing.JFrame {
         show_HOA_DON();
         cbdichvu.setModel(DICHVUBLL.cbb_show());
         show_THONG_KE();
-        maphongcb.setModel(DANHGIABLL.cbb_show());
         manhanviencb.setModel(NHANVIENBLL.c_show());
         maphongcb.setModel(PHONGBLL.cbb_show());
         show_NHAN_VIEN();
